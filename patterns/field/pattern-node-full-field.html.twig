@@ -15,23 +15,24 @@
 {% set _h_classes = [
   (_label_menu == 'visible') ? 'it-page-section' : ''
 ]|merge([label_size]) %}
-{% if attributes is empty %}
-  {% set attributes = create_attribute() %}
+{% if content_attributes is empty %}
+  {% set content_attributes = create_attribute() %}
 {% endif %}
 {% if h_attributes is empty %}
   {% set h_attributes = create_attribute() %}
 {% endif %}
-{% set attributes = attributes.addClass(_classes) %}
+{% set content_attributes = content_attributes.addClass(_classes) %}
 {% if _audio == 'active' %}{% set attributes = attributes.setAttribute('audio', '') %}{% endif %}
 {% if _field_label and _label_visible != 'visible' %}
   {% set h_attributes = h_attributes.addClass('visually-hidden-focusable') %}
 {% endif %}
 
-<article{{ attributes }}>
-
-  <{{ _htag }}{{ h_attributes.addClass(_h_classes).setAttribute('id', _field_id) }}>
-    {{ _field_label|render|striptags|trim }}
-  </{{ _htag }}>
+<article{{ content_attributes }}>
+  {% if _field_label|render|striptags|trim is not empty %}
+    <{{ _htag }}{{ h_attributes.addClass(_h_classes).setAttribute('id', _field_id) }}>
+      {{ _field_label|render|striptags|trim }}
+    </{{ _htag }}>
+  {% endif %}
 
   {% if _intro_text %}
     <p>{{ _intro_text }}</p>
