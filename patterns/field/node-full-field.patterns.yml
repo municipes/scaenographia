@@ -11,7 +11,7 @@
 #
 node_full_field:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: "Field pattern for full node content"
+  label: "Node full view"
   description: "Render del campo nella zona principale contenuti. https://italia.github.io/bootstrap-italia/docs/componenti/chips/"
 
   # Variants definition.
