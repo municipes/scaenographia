@@ -26,8 +26,8 @@
 
   {# Set options #}
     {% set _classes = [
-      'it-timeline-wrapper',
-      'my-3'
+      'point-list-wrapper',
+      'my-4'
     ] %}
 
   {% if _timeline_classes is not empty %}
@@ -46,9 +46,7 @@
 
     {% block timelineItems %}
       {% for item in items %}
-        <div class="card-calendar calendar-date d-flex flex-row text-primary">
-          {% include '@scaenographia_components/date-timeline/date-timeline-item.html.twig' with item %}
-        </div>
+        {% include '@scaenographia_components/date-timeline/date-timeline-item.html.twig' with item %}
       {% endfor %}
     {% endblock %}
 

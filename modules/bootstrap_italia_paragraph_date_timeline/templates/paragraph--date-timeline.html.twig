@@ -47,7 +47,7 @@
   is_admin: is_admin
 } %}
 
-{% set items = [
+{# {% set items = [
   {
     'date': '12 maggio 2023',
     'title': 'Apertura iscrizioni',
@@ -56,18 +56,19 @@
     'date':'20',
     'title': 'Chiusura',
   }
-] %}
+] %} #}
 
   {% block content %}
     {% set timeline_attributes = create_attribute() %}
     {% embed '@scaenographia_components/date-timeline/date-timeline.html.twig' with {
       timeline_attributes: timeline_attributes.addClass('calendar-vertical', 'mb-3').setAttribute('data-element', 'service-calendar-list'),
     } %}
-      {# {% block timelineItems %}
+      {% block timelineItems %}
         {{ content|without(
+          'field_text',
           'field_settings',
         ) }}
-      {% endblock %} #}
+      {% endblock %}
     {% endembed %}
 
   {% endblock %}

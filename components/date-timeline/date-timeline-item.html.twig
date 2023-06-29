@@ -6,21 +6,17 @@
  * Latest revision: v2.3.8
  *
  * Parameters:
- * - past_event (boolean) (default: false)
- * - now_event (boolean) (default: false)
- * - pin_icon (string) (default: '')
- *   options ["it-name", ...]
- * - pin_text (string) (default: '')
+ * - item array
  * - content (string) (default: '')
  * - timeline_item_classes (array) (default: '')
  * - timeline_item_attributes (obj attribute) (default: '')
  *
  * Examples:
-   {% embed '@bi-bcl/timeline/timeline-item.html.twig' with {
-     past_event: true,
-     pin_icon: '',
-     pin_text: '',
-   } %}
+   {% embed '@bi-bcl/date-timeline/date-timeline-item.html.twig' with {
+     item: {
+              'date': '12 maggio 2023',
+              'title': 'Apertura iscrizioni',
+            },
      {% block timelineItemContent %}
        Your content
      {% endblock %}
@@ -41,9 +37,9 @@
     {% set _day_text = 'days'|t %}
   {% endif %}
 
-  {% set _title %}
+  {# {% set _title %}
   <h3 class="h5 mb-0">{{ title }}</h4>
-  {% endset %}
+  {% endset %} #}
 
   {% set _timeline_item_classes = timeline_item_classes|default('') %}
   {% set _timeline_item_attributes = timeline_item_attributes|default('') %}
@@ -61,23 +57,21 @@
   %}
 
   {# Component #}
-  <div class="calendar-date-day">
-    <span class="calendar-date-day__year d-flex justify-content-center">{{ _year }}</span>
-    <span class="card-day h4 d-flex justify-content-center">{{ _day }} <span class="small">{{ _day_text }}</span></span>
-    <span class="calendar-date-day__month d-flex justify-content-center">{{ _month }}</span>
-  </div>
-  <div class="calendar-date-description rounded">
-    <div class="calendar-date-description-content">
-      {% include '@bi-bcl/card/card.html.twig' with {
-        card_text: _title,
-        card_classes: ['h-100'],
-        card_body_classes: ['pb-5'],
-        card_teaser: true,
-        card_shadow: true,
-        card_border: false,
-      } %}
-      {# <h3 class="h5 mb-0">{{ _title }}</h4> #}
+    <div class="point-list">
+      <div class="point-list-aside point-list-primary">
+        <div class="point-year font-monospace small">{{ _year }}</div>
+        <div class="point-date font-monospace fs-2">{{ _day }} <div class="small fw-semibold">{{ _day_text }}</div></div>
+        <div class="point-month font-monospace fs-6 fw-semibold">{{ _month|slice(0, 3) }}</div>
+      </div>
+      <div class="point-list-content">
+        <div class="card card-teaser shadow rounded">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ item.title }}
+            </h5>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
 {% endapply %}

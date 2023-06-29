@@ -40,17 +40,10 @@
 #}
 <div class="col-12">
   {% embed '@scaenographia_components/date-timeline/date-timeline-item.html.twig' with {
-    past_event: content.field_past_event[0]|render == 'True' ? true : false,
-    now_event: content.field_now_event[0]|render == 'True' ? true : false,
-    pin_icon: content.field_icon_name[0] ? content.field_icon_name[0]['#context'].value : '',
-    pin_text: content.field_kicker[0] ? content.field_kicker[0]['#context'].value : '',
+    item: {
+        'date': content.field_days|render|striptags,
+        'title': content.field_title,
+    }
   } %}
-    {# {% block timelineItemContent %}
-      {{ content|without(
-        'field_settings',
-      ) }}
-
-    {% endblock %} #}
   {% endembed %}
 </div>
-
