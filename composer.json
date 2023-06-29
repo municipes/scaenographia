@@ -1,0 +1,23 @@
+{
+    "name": "municipes/scaenographia",
+    "description": "Scaenographia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design dei comuni.",
+    "type": "drupal-theme",
+    "license": "GPL-3.0-only",
+    "homepage": "https://github.com/municipes/scaenographia",
+    "authors": [
+        {
+            "name": "Maurizio Cavalletti",
+            "homepage": "https://www.drupal.org/u/maurizio_akabit",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/municipes/scaenographia/issues",
+        "source": "https://github.com/municipes/scaenographia"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "drupal/bootstrap_italia": "^2.3.2"
+    }
+}

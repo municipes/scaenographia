@@ -1,0 +1,83 @@
+{#
+/**
+ * @file
+ * Template for timeline_item component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/timeline/
+ * Latest revision: v2.3.8
+ *
+ * Parameters:
+ * - past_event (boolean) (default: false)
+ * - now_event (boolean) (default: false)
+ * - pin_icon (string) (default: '')
+ *   options ["it-name", ...]
+ * - pin_text (string) (default: '')
+ * - content (string) (default: '')
+ * - timeline_item_classes (array) (default: '')
+ * - timeline_item_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% embed '@bi-bcl/timeline/timeline-item.html.twig' with {
+     past_event: true,
+     pin_icon: '',
+     pin_text: '',
+   } %}
+     {% block timelineItemContent %}
+       Your content
+     {% endblock %}
+   {% endembed %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Create date array #}
+  {% set date_array = item.date|split(' ') %}
+
+  {# Set defaults #}
+  {% set _day = date_array.0 ?? false %}
+  {% if date_array.1 and date_array.2 %}
+    {% set _month = date_array.1 ?? false %}
+    {% set _year = date_array.2 ?? false %}
+  {% else %}
+    {% set _day_text = 'days'|t %}
+  {% endif %}
+
+  {% set _title %}
+  <h3 class="h5 mb-0">{{ title }}</h4>
+  {% endset %}
+
+  {% set _timeline_item_classes = timeline_item_classes|default('') %}
+  {% set _timeline_item_attributes = timeline_item_attributes|default('') %}
+
+  {# Set options #}
+  {% if _timeline_item_classes is not empty %}
+    {% set _classes = _classes|merge(timeline_item_classes) %}
+  {% endif %}
+
+  {% if _timeline_item_attributes is empty %}
+    {% set timeline_item_attributes = create_attribute() %}
+  {% endif %}
+  {% set timeline_item_attributes = timeline_item_attributes
+    .addClass(_classes)
+  %}
+
+  {# Component #}
+  <div class="calendar-date-day">
+    <span class="calendar-date-day__year d-flex justify-content-center">{{ _year }}</span>
+    <span class="card-day h4 d-flex justify-content-center">{{ _day }} <span class="small">{{ _day_text }}</span></span>
+    <span class="calendar-date-day__month d-flex justify-content-center">{{ _month }}</span>
+  </div>
+  <div class="calendar-date-description rounded">
+    <div class="calendar-date-description-content">
+      {% include '@bi-bcl/card/card.html.twig' with {
+        card_text: _title,
+        card_classes: ['h-100'],
+        card_body_classes: ['pb-5'],
+        card_teaser: true,
+        card_shadow: true,
+        card_border: false,
+      } %}
+      {# <h3 class="h5 mb-0">{{ _title }}</h4> #}
+    </div>
+  </div>
+
+{% endapply %}

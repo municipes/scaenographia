@@ -1,0 +1,5 @@
+services:
+  bi_taxonomy_custom_controller.term_page_build_subscriber:
+    class: Drupal\bi_taxonomy_custom_controller\EventSubscriber\TermPageBuildSubscriber
+    tags:
+      - { name: event_subscriber }

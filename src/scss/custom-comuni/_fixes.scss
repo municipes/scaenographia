@@ -1,0 +1,223 @@
+/**
+ * SCSS fixes file.
+ */
+
+body {
+  font-family: Titillium Web;
+  color: #191919;
+}
+
+.text-decoration-none a {
+  @extend .text-decoration-none;
+}
+
+.text-primary {
+  color: $primary !important; // in attesa di fix ufficiale
+}
+
+/** component date calendar **/
+.calendar-vertical .calendar-date {
+
+  .calendar-date-day {
+    line-height: 1;
+  }
+
+  // .calendar-date-day:before {
+  //   position: absolute;
+  //   z-index: 1;
+  //   top: 0;
+  //   right: 5px;
+  //   width: 2px;
+  //   height: 100%;
+  //   background-color: $primary;
+  //   content: ""
+  // }
+
+  // .calendar-date-day:after {
+  //   content: "";
+  //   width: .625rem;
+  //   height: .625rem;
+  //   position: absolute;
+  //   z-index: 1;
+  //   top: 1.875rem;
+  //   right: .2px;
+  //   background-color: $primary;
+  //   border-radius: 5px
+  // }
+
+  // @media(max-width:991.8px) {
+  //   .calendar-date-day:after {
+  //     width: .56rem;
+  //     height: .56rem;
+  //     top: 1.56rem
+  //   }
+  // }
+
+  .calendar-date-description {
+    width: 100%;
+    margin: 0 0 1.33rem .72rem;
+  }
+}
+
+/** header **/
+.navbar-secondary li:last-child a.nav-link {
+  @extend .fw-bold;
+}
+
+/** home page **/
+body.path-frontpage {
+  .home-second-row-full-width__wrapper {
+    @extend .bg-100;
+
+    >div {
+      @extend .container;
+    }
+
+    @extend .pt-4;
+    @extend .pb-4;
+  }
+
+  .card-wrapper.it-card-overlapping {
+    margin-top: -50px;
+  }
+
+  .it-calendar-wrapper .it-single-slide-wrapper {
+    @extend .h-100;
+
+    .card-wrapper {
+      @extend .h-100;
+    }
+  }
+
+  .home-third-row-full-width__wrapper {
+    background-image: url("../images/evidenza-header.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 300px;
+
+    #it-block-hpargomentiinevidenza h2 {
+      color: white !important;
+    }
+  }
+}
+
+/** end home page **/
+
+.it-argument-chips {
+  list-style: none;
+  padding-left: 0;
+}
+
+.page-type--page {
+  .field--name-field-argomenti {
+    >div:first-child {
+      @extend .h6;
+    }
+
+    .d-flex {
+      @extend .flex-wrap;
+    }
+  }
+}
+
+.row-shadow {
+  box-shadow: 0 .9375rem 1.325rem -.9rem rgba(0, 0, 0, .1);
+}
+
+h1.text-black span {
+  @extend .text-black;
+}
+
+.shadow-contacts {
+  box-shadow: inset 0 10px 14px -12px rgba(0, 0, 0, .34);
+}
+
+.views-exposed-form {
+
+  input[type='text'] {
+    padding-left: 2.6rem;
+  }
+
+  .autocomplete-icon {
+    position: absolute;
+    left: 0;
+    right: auto;
+    top: 6px;
+    background-color: #fff;
+    z-index: 5;
+  }
+}
+
+.after-content-full-width__wrapper {
+  background-color: $gray-100;
+}
+
+/** CT pagina **/
+body.page-node-type--pagina {
+  .it-hero-wrapper.it-hero-small-size {
+    min-height: 0%;
+  }
+
+  .it-hero-wrapper .it-hero-text-wrapper {
+    max-width: 600px;
+    padding: 0;
+  }
+}
+
+/** pagina servizi **/
+
+
+/** footer **/
+.it-footer {
+  .it-brand-wrapper {
+    display: flex;
+    gap: 30px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    flex-direction: row;
+    align-items: flex-start;
+
+    .ue-logo {
+      max-width: 50%;
+    }
+  }
+
+  .region-footer-second ul,
+  .region-footer-menu ul {
+    column-count: 2;
+    column-gap: 2%;
+  }
+
+  .footer-items-wrapper {
+    h3 {
+      @extend .border-white;
+      @extend .border-bottom;
+      @extend .pb-2;
+      @extend .mb-3;
+    }
+
+    p a,
+    ul.link-list a.list-item span,
+    ul.list-inline a.list-inline-item {
+      @extend .text-white;
+      @extend .text-decoration-underline;
+      @extend .fw-normal;
+    }
+
+    ul.list-inline li {
+      @extend .pe-6;
+    }
+  }
+
+  .it-socials ul {
+    @extend .list-unstyled;
+    @extend .d-flex;
+    @extend .gap-4;
+  }
+}
+
+@media (min-width: 992px) {
+  .row.row-column-border>[class^="col-"] .navbar.navbar.it-navscroll-wrapper .menu-wrapper {
+    padding: 16px 0 24px;
+  }
+}

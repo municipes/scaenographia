@@ -1,0 +1,80 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set paragraph = element['#object'] %}
+
+{% apply spaceless %}
+  <div class="container py-5">
+    <h2 class="text-secondary mb-4">{{ paragraph.field_title.value|default('Highlights'|t) }}</h2>
+    <div class="row g-4">
+      {% for item in items %}
+        <div{{item.attributes.addClass(['col-md-6','col-xl-4'])}}>{{ item.content }}</div>
+      {% endfor %}
+
+      {% if paragraph.field_call_to_action.0.getUrl().toString() is not empty %}
+        <div class="d-flex justify-content-end">
+          {% set _button_classes = [
+            'btn',
+            'btn-primary',
+            'px-5',
+            'py-3',
+            'full-mb',
+          ] %}
+
+          {% set button_attributes = create_attribute() %}
+          {% set button_attributes = button_attributes
+            .setAttribute('data-element', paragraph.field_data_element.value|render|trim)
+            .setAttribute('data-focus-mouse', 'false') %}
+
+          {% include '@bi-bcl/button/button.html.twig' with {
+            label: paragraph.field_call_to_action.0.title,
+            tag: 'button',
+            url: paragraph.field_call_to_action.0.getUrl().toString(),
+            type: 'button',
+            button_classes: _button_classes,
+            button_attributes: button_attributes,
+            label_classes: _label_classes
+          } %}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+{% endapply %}

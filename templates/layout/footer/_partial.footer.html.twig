@@ -1,0 +1,108 @@
+{% embed '@bootstrap_italia/layout/footer/_partial.footer.html.twig' %}
+  {% block footerBrand %}
+    {% if page.brand %}
+      <div class="row">
+        <div class="col-sm-12 footer-items-wrapper logo-wrapper">
+          {{ page.footer_brand }}
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block footerMenu %}{% endblock %}
+
+  {% block footerBlocks %}
+    {% if page.footer_first or page.footer_second or page.footer_third %}
+
+      {% set footer_blocks_classes = [
+        'pb-2',
+        'footer-items-wrapper'
+      ] %}
+
+      {% set footer_column_attributes = create_attribute() %}
+
+      <div class="row py-4">
+        {% if page.footer_first %}
+          <div{{ footer_column_attributes.addClass(footer_blocks_classes).addClass('col-md-3') }}>
+            {{ page.footer_first }}
+          </div>
+        {% endif %}
+        {% if page.footer_second %}
+          <div{{ footer_column_attributes.addClass(footer_blocks_classes).removeClass('col-md-3').addClass('col-md-6') }}>
+            {{ page.footer_second }}
+          </div>
+        {% endif %}
+        {% if page.footer_third %}
+          <div{{ footer_column_attributes.removeClass('col-md-6').addClass('col-md-3') }}>
+            {{ page.footer_third }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block footerSmallPrints %}
+    <div class="it-footer-main">
+      <div class="{{ footer_container_type ?: 'container' }}">
+        {% if page.footer_credits or page.footer_menu or page.footer_social %}
+
+          {% set footer_blocks_classes = [
+            'pb-2',
+            'footer-items-wrapper'
+          ] %}
+
+          {% set footer_column_attributes = create_attribute() %}
+
+          <div class="row py-1">
+            <div class="col-9">
+              <div class="row">
+                {% if page.footer_credits %}
+                  <h3 class="h6 text-uppercase border-white border-bottom pb-2 mb-3">{{ 'Contacts'|t }}</h3>
+                  <div{{ footer_column_attributes.addClass(footer_blocks_classes).addClass('col-md-4') }}>
+                    {{ page.footer_credits }}
+                  </div>
+                {% endif %}
+                {% if page.footer_menu %}
+                  <div{{ footer_column_attributes.addClass(footer_blocks_classes).removeClass('col-md-4').addClass('col-md-8') }}>
+                    {{ page.footer_menu }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-3">
+              {% if socials %}
+                <h3 class="h6 text-uppercase border-white border-bottom pb-2 mb-3">{{ 'Follow us on'|t }}</h3>
+                <div{{ footer_column_attributes.removeClass('col-md-6').addClass('col-md-3') }}>
+                  {% include '@bi-bcl/share/follow-us.html.twig' with {
+                    socials: socials,
+                    label: '',
+                    icon_color: center_header_light ? 'primary' : 'white',
+                    blank: social_new_window,
+                    followus_classes: ["it-socials", "d-none", "d-lg-flex"]
+                  } %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if page.footer_small_prints %}
+          {% set footer_blocks_classes = [
+            'pb-2',
+            'footer-items-wrapper'
+          ] %}
+
+          {% set footer_column_attributes = create_attribute() %}
+
+          <div class="row border-white border-top mt-4 pt-4">
+              <div{{ footer_column_attributes.addClass(footer_blocks_classes).removeClass('col-md-3').removeClass('col-md-6') }}>
+                {{ page.footer_small_prints }}
+              </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+  {% endblock %}
+
+{% endembed %}

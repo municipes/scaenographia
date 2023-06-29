@@ -1,0 +1,48 @@
+{% apply spaceless %}
+
+{% set _field_label = (override_label|trim is not empty) ? override_label|t : field_label %}
+{% set _htag = heading_value|default('h2') %}
+{% set _intro_text = intro_text %}
+{% set _field_id = field_id|default('it-menu-' ~ random()) %}
+{% set _label_visible = label_visible|default('visible') %}
+{% set _label_menu = label_menu|default('visible') %}
+{% set _audio = audio|default('active') %}
+{% set _attributes = attributes|default('') %}
+{% set _classes = [
+  'mb-3'
+] %}
+
+{% set _h_classes = [
+  (_label_menu == 'visible') ? 'it-page-section' : ''
+]|merge([label_size]) %}
+{% if attributes is empty %}
+  {% set attributes = create_attribute() %}
+{% endif %}
+{% if h_attributes is empty %}
+  {% set h_attributes = create_attribute() %}
+{% endif %}
+{% set attributes = attributes.addClass(_classes) %}
+{% if _audio == 'active' %}{% set attributes = attributes.setAttribute('audio', '') %}{% endif %}
+{% if _field_label and _label_visible != 'visible' %}
+  {% set h_attributes = h_attributes.addClass('visually-hidden-focusable') %}
+{% endif %}
+
+<article{{ attributes }}>
+
+  <{{ _htag }}{{ h_attributes.addClass(_h_classes).setAttribute('id', _field_id) }}>
+    {{ _field_label|render|striptags|trim }}
+  </{{ _htag }}>
+
+  {% if _intro_text %}
+    <p>{{ _intro_text }}</p>
+  {% endif %}
+
+  {% if _attributes is empty %}
+    {% set _attributes = create_attribute() %}
+  {% endif %}
+
+  <div{{ _attributes }}>{{ field_value }}</div>
+
+</article>
+
+{% endapply %}

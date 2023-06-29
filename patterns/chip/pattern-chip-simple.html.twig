@@ -1,0 +1,22 @@
+{% apply spaceless %}
+
+	{% if chip_link %}
+		{% set _link = link(chip_text, 'entity:taxonomy_term/' ~ chip_link, { 'data-focus-mouse':['false']}) %}
+	{% endif %}
+
+	{% if variant == 'node_full' %}
+		{% include '@bi-bcl/chip/chip.html.twig' with {
+			chip_label: _link,
+			chip_color: 'primary',
+			chip_classes: ['d-flex'],
+			chip_simple: true
+		} %}
+	{% else %}
+		{% include '@bi-bcl/chip/chip.html.twig' with {
+			chip_label: chip_text,
+			chip_color: 'primary',
+			chip_classes: ['d-flex'],
+			chip_simple: true
+		} %}
+	{% endif %}
+{% endapply %}
