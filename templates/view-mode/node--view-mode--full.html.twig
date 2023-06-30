@@ -89,18 +89,7 @@
           </p>
         {% endif %}
 
-        {% block meta %}
-          <div class="row mt-5 mb-4">
-            <div class="col-6">
-              <small>{{ 'Date'|t }}:</small>
-              <p class="fw-semibold font-monospace">{{ content.field_data_inizio|render|striptags }}</p>
-            </div>
-            <div class="col-6">
-              <small>{{ 'Read time'|t }}:</small>
-              <p class="fw-semibold">{{ content.node_read_time|render|striptags }}</p>
-            </div>
-          </div>
-        {% endblock %}
+        {% block meta %}{% endblock %}
       </div>
 
       <div class="col-lg-3 offset-lg-1">
