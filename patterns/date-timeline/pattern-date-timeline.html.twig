@@ -1,0 +1,13 @@
+{# Set variables #}
+{% set date = data_fase|date('U')|format_date('custom','d M Y') %}
+{% set hour = data_fase|date('U')|format_date('custom','H:i') %}
+
+{# Render output #}
+
+{% include '@scaenographia_components/date-timeline/date-timeline.html.twig' with {
+  items: [
+  {
+    'date': date,
+    'title': hour ~ ' - ' ~ testo
+  }]
+} %}
