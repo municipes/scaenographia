@@ -79,17 +79,25 @@
     'telegram': 'it-telegram',
     'twitter': 'it-twitter',
     'whatsapp': 'it-whatsapp',
-}%}
+} %}
+
+{% set social_map = [
+    'linkedin',
+    'skype',
+    'telegram',
+    'twitter',
+    'whatsapp',
+] %}
 
 {% set type = node.field_tipo_punto_di_contatto.entity.label|lower %}
 {% set label = node.label %}
 {% set value = node.field_valore_punto_di_contatto.value %}
 
-<div class="col-lg-6">
+<div class="col-lg-6 p-1 mb-2">
   {% if map[type] %}
     {% include '@bi-bcl/icon/icon.html.twig' with {
       name: map[type],
-      size: 'lg',
+      size: 'sm',
       color: 'primary',
     } %}
   {% endif %}
@@ -107,6 +115,8 @@
     {% set value = link(value, 'mailto:' ~ value, { 'class':['h6']}) %}
   {% endif %}
 
-  <span class="label h-5 fw-bold">{{ label }} </span>
-  {% if value %}<span class="value fs-6 pe-3">{{ value }}</span>{% endif %}
+    {% if type|lower in social_map %}{% set label = false %}{% endif %}
+
+  <span class="label h6 fw-bold px-3 fw-semibold">{{ label }} </span>
+  {% if value %}<span class="value fs-6">{{ value }}</span>{% endif %}
 </div>
