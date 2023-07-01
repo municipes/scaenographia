@@ -1,3 +1,31 @@
-<div class="mb-5">
+{% set card_text %}
+<div class="mb-5 fs-6">
   <p>{{ field_street }} - {{ field_cap }} {{ field_city }}</p>
 </div>
+{% endset %}
+
+{% embed '@bi-bcl/card/card.html.twig' with {
+  card_title: label,
+  card_category: content.field_tipo_punto_di_contatto|render|striptags,
+  card_text: card_text,
+  card_teaser: false,
+  card_shadow: false,
+  card_border: true,
+  card_classes: [],
+  card_attributes: _attributes
+} %}
+
+  {% block cardTitle %}{% endblock %}
+
+  {% block cardText %}
+    <div class="d-flex">
+      <div class="categoryicon-top">
+        {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-pin'} %}
+      </div>
+      {% if _card_text is not empty %}
+        <div class="card-text font-sans-serif pt-3">{{ _card_text }}</div>
+      {% endif %}
+    </div>
+  {% endblock %}
+
+{% endembed %}
