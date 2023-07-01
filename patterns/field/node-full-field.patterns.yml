@@ -19,6 +19,9 @@ node_full_field:
     default:
       label: Default
       description:
+    address:
+      label: Address
+      description: For address field
 
   # Settings (ui_patterns_settings module).
   settings:
@@ -105,6 +108,21 @@ node_full_field:
       label: 'Field value (field)'
       description: 'Field value.'
       preview: 'Lorem ipsum dolor sit amet'
+    field_street:
+      type: text
+      label: 'Address line'
+      description: 'Indirizzo.'
+      preview: 'Piazza della Signoria 11'
+    field_city:
+      type: text
+      label: 'City'
+      description: 'Indirizzo.'
+      preview: 'Firenze'
+    field_cap:
+      type: text
+      label: 'CAP'
+      description: 'Indirizzo.'
+      preview: '50122'
 
   # Optional: Attached libraries.
   #
