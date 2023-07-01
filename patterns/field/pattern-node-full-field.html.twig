@@ -42,8 +42,34 @@
     {% set _attributes = create_attribute() %}
   {% endif %}
 
-  <div{{ _attributes }}>{{ field_value }}</div>
+  {% set card_text %}
+    <div class="d-flex flex-wrap">{{ field_value }}</div>
+  {% endset %}
 
+  {% if use_card %}
+    {% embed '@bi-bcl/card/card.html.twig' with {
+      card_title: label,
+      card_category: content.field_tipo_punto_di_contatto|render|striptags,
+      card_text: card_text,
+      card_teaser: false,
+      card_shadow: false,
+      card_border: true,
+      card_classes: [],
+      card_attributes: _attributes
+    } %}
+
+      {% block cardTitle %}{% endblock %}
+
+      {% block cardText %}
+        {% if _card_text is not empty %}
+          <div class="card-text font-sans-serif">{{ _card_text }}</div>
+        {% endif %}
+      {% endblock %}
+
+    {% endembed %}
+  {% else %}
+    <div{{ _attributes }}>{{ field_value }}</div>
+  {% endif %}
 </article>
 
 {% endapply %}
