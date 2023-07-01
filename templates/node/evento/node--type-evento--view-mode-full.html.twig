@@ -89,13 +89,18 @@
     } %}
   {% endblock %}
 
-  {% block arguments %}{% endblock %}
+  {% block arguments %}
+    <div class="mt-4 mb-4">
+      {{ content.field_tipo_di_evento }}
+    </div>
+  {% endblock %}
 
   {% block content %}
     {{ content|without(
       'field_sottotitolo',
       'field_descrizione_breve',
       'field_argomenti',
+      'field_tipo_di_evento',
       'node_read_time',
       'field_immagine',
       'toc_js',
