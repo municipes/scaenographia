@@ -8,10 +8,4 @@ dependencies:
   - drupal:entity_reference_display
   - drupal:bootstrap_italia_paragraph
 
-components:
-  namespaces:
-    # Components library 2.0
-    bi-bcl:
-      - ../../components/components-2
-
 
