@@ -22,37 +22,6 @@ body {
     line-height: 1;
   }
 
-  // .calendar-date-day:before {
-  //   position: absolute;
-  //   z-index: 1;
-  //   top: 0;
-  //   right: 5px;
-  //   width: 2px;
-  //   height: 100%;
-  //   background-color: $primary;
-  //   content: ""
-  // }
-
-  // .calendar-date-day:after {
-  //   content: "";
-  //   width: .625rem;
-  //   height: .625rem;
-  //   position: absolute;
-  //   z-index: 1;
-  //   top: 1.875rem;
-  //   right: .2px;
-  //   background-color: $primary;
-  //   border-radius: 5px
-  // }
-
-  // @media(max-width:991.8px) {
-  //   .calendar-date-day:after {
-  //     width: .56rem;
-  //     height: .56rem;
-  //     top: 1.56rem
-  //   }
-  // }
-
   .calendar-date-description {
     width: 100%;
     margin: 0 0 1.33rem .72rem;
@@ -99,6 +68,11 @@ body.path-frontpage {
       color: white !important;
     }
   }
+}
+
+.block-views.block-views-blockbi-siti-tematici-block-1 {
+  @extend .container;
+  @extend .mb-5;
 }
 
 /** end home page **/
