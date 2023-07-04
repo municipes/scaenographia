@@ -80,7 +80,7 @@
 
   {% block cardTitle %}
     <h3{{ title_attributes.addClass(['card-title', 'h3']) }}>
-      <a data-element="management-category-link" class="text-decoration-none" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">{{ label }}</a>
+      <a data-element="{{ node.uuid.value }}" class="text-decoration-none" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">{{ label }}</a>
     </h3>
   {% endblock %}
 

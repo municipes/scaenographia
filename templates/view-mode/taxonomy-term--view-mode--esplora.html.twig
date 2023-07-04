@@ -34,11 +34,22 @@
     card_attributes: attributes
   } %}
 
+  {% set map = {
+    "tipi_di_notizia": "news-category-link",
+    "categorie_dei_servizi": "service-category-link",
+  } %}
+
     {% block cardTitle %}
+      {% set label = term.field_plurale.value ? term.field_plurale.value : term.label %}
+      {% set link_attributes = create_attribute() %}
+      {% if map[term.bundle] %}
+        {% set link_attributes = link_attributes.setAttribute('data-element', map[term.bundle]) %}
+      {% endif %}
+
       {{ title_prefix }}
       {% if name and not page %}
         <h3{{ title_attributes.addClass(['card-title','text-decoration-none']) }}>
-          <a href="{{ url }}" rel="bookmark">{{ term.label }}</a>
+          <a{{ link_attributes }} href="{{ url }}" rel="bookmark">{{ label }}</a>
         </h3>
       {% endif %}
       {{ title_suffix }}
