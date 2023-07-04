@@ -108,9 +108,8 @@ import './component-library-initialization'
 import './custom/custom'
 
 /**
- * Export all bootstrap-italia components as `bootstrap`, to choose components
- * use
- * window.bootstrap = {ComponentA, ComponentB, ...}
+ * Export all bootstrap-italia components as `bootstrap`,
+ * use your custom.js to customize object.
  *
  * @type {any}
  */

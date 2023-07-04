@@ -190,6 +190,10 @@ body.page-node-type--pagina {
   }
 }
 
+.has-bg-grey {
+  @extend .bg-100;
+}
+
 @media (min-width: 992px) {
   .row.row-column-border>[class^="col-"] .navbar.navbar.it-navscroll-wrapper .menu-wrapper {
     padding: 16px 0 24px;
