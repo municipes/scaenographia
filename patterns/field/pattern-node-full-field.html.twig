@@ -9,7 +9,9 @@
 {% set _audio = audio|default('active') %}
 {% set _attributes = attributes|default('') %}
 {% set _classes = [
-  'mb-3'
+  'mb-3',
+  has_bg_grey ? 'has-bg-grey',
+  has_bg_grey ? 'p-3',
 ] %}
 
 {% set _h_classes = [

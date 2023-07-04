@@ -80,6 +80,10 @@ node_full_field:
       type: boolean
       label: Use card
       allow_expose: true
+    has_bg_grey:
+      type: boolean
+      label: Grey background
+      allow_expose: true
     audio:
       type: radios
       label: Audio
