@@ -73,20 +73,18 @@
   {% block content %}
     {{ content|without(
       'field_descrizione_breve',
-      'field_argomenti',
       'node_read_time',
       'field_immagine',
       'toc_js',
       'field_stato_del_servizio',
       'field_motivo_dello_stato',
-      'field_canale_digitale',
       'comment'
     ) }}
   {% endblock %}
 
   {% block title %}
     {{ title_prefix }}
-    <h1 data-audio {{ title_attributes }}>
+    <h1 data-element="service-title" data-audio {{ title_attributes }}>
       {{ label }}
     </h1>
     {{ title_suffix }}
@@ -117,18 +115,41 @@
     {% endif %}
   {% endblock %}
 
+  {% block excerpt %}
+    {% if content.field_descrizione_breve|render|striptags %}
+      <h2 class="visually-hidden">{{ 'Details'|t }}</h2>
+      <div data-element="service-description" data-audio>
+        {{ content.field_descrizione_breve }}
+      </div>
+    {% endif %}
+  {% endblock %}
+
   {% block meta %}
     <div class="row mt-5 mb-4">
       <div class="col-6">
         {% set button_attributes = create_attribute() %}
+        {% set digital_channel = node.field_accedi_al_servizio.0.entity %}
+        {# {% set reservation = node.field_accedi_al_servizio.1.entity ? node.field_accedi_al_servizio.1.entity : false %} #}
 
         {% include '@bi-bcl/button/button.html.twig' with {
-          label: node.field_canale_digitale.0.title,
-          tag: 'button',
-          url: node.field_canale_digitale.0.getUrl().toString(),
+          label: digital_channel.field_link.0.title,
+          tag: 'a',
+          url: digital_channel.field_link.0.getUrl().toString(),
           button_classes: ['btn', 'btn-primary', 'fw-bold', 'px-5'],
-          button_attributes: button_attributes.setAttribute('data-element', 'service-description')
+          button_attributes: button_attributes.setAttribute('data-element', 'service-generic-access')
         } %}
+
+        {# {% if reservation %}
+          {% include '@bi-bcl/button/button.html.twig' with {
+            label: reservation.field_link.0.title,
+            tag: 'a',
+            variant: 'white',
+            url: reservation.field_link.0.getUrl().toString(),
+            button_classes: ['text-primary', 'btn', 'btn-outline-primary', 'fw-bold', 'px-5', 'ms-6'],
+            button_attributes: button_attributes.setAttribute('data-element', 'service-description')
+          } %}
+        {% endif %} #}
+
       </div>
     </div>
   {% endblock %}
