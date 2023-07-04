@@ -80,14 +80,15 @@
           </h1>
           {{ title_suffix }}
         {% endblock %}
-        {% if content.field_descrizione_breve|render|striptags %}
-          <h2 class="visually-hidden">{{ 'Details'|t }}</h2>
-          <p data-audio>
-            {% block excerpt %}
+
+        {% block excerpt %}
+          {% if content.field_descrizione_breve|render|striptags %}
+            <h2 class="visually-hidden">{{ 'Details'|t }}</h2>
+            <div data-audio>
               {{ content.field_descrizione_breve }}
-            {% endblock %}
-          </p>
-        {% endif %}
+            </div>
+          {% endif %}
+        {% endblock %}
 
         {% block meta %}{% endblock %}
       </div>

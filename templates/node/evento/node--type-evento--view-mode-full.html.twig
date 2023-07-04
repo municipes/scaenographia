@@ -71,8 +71,10 @@
 {% embed "@scaenographia/view-mode/node--view-mode--full.html.twig" %}
 
   {% block excerpt %}
-    <h2 class="h4 py-2" data-audio="">{{ content.field_sottotitolo }}</h2>
-    {{ content.field_descrizione_breve }}
+    {% if content.field_sottotitolo|render|striptags %}
+      <h2 class="h4 py-2" data-audio="">{{ content.field_sottotitolo }}</h2>
+      {{ content.field_descrizione_breve }}
+    {% endif %}
   {% endblock %}
 
   {% block meta %}{% endblock %}
