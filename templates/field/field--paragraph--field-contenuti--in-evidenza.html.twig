@@ -61,7 +61,8 @@
           {% set button_attributes = create_attribute() %}
           {% set button_attributes = button_attributes
             .setAttribute('data-element', paragraph.field_data_element.value|render|trim)
-            .setAttribute('data-focus-mouse', 'false') %}
+            .setAttribute('data-focus-mouse', 'false')
+            .setAttribute('onclick', 'location.href = \'' ~ paragraph.field_call_to_action.0.getUrl().toString() ~ '\'') %}
 
           {% include '@bi-bcl/button/button.html.twig' with {
             label: paragraph.field_call_to_action.0.title,
