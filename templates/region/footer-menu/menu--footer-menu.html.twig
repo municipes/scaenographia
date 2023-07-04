@@ -38,19 +38,17 @@
     {% set link_attributes = link_attributes
         .addClass(['list-item', 'large', 'medium'])
         .setAttribute('data-focus-mouse', 'false') %}
-
+    {% set _url_text %}
+      <span class="list-item-title">{{ item.title }}</span>
+    {% endset %}
     {% if map[item.title|lower] is not empty %}
-
       <li>
-        <span class="list-item-title">
-          {{ link(item.title, item.url, link_attributes.setAttribute('data-element', map[item.title|lower])) }}
-        </span>
+        {{ link(_url_text, item.url, link_attributes.setAttribute('data-element', map[item.title|lower])) }}
       </li>
-
     {% else %}
       {# {% set _attributes = item.attributes.setAttribute('data-element', 'custom-submenu') %}
       {% set _items = _items|merge([item]) %} #}
-      <li>{{ link(item.title, item.url, link_attributes.setAttribute('data-element', 'custom-submenu')) }}</li>
+      <li>{{ link(_url_text, item.url, link_attributes.setAttribute('data-element', 'custom-submenu')) }}</li>
     {% endif %}
 
   {% endfor %}
