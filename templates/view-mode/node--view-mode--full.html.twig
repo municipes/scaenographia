@@ -153,9 +153,9 @@
         </div>
 
         <footer id="ultimo-aggiornamento" class="anchor-offset mt-5">
-          <h4 class="font-serif h6">{{ 'Last update'|t }}:
-            <span class="h6 fw-normal">{{ node.getChangedTime|date('d/m/Y, H:i') }}</span>
-          </h4>
+          <div class="d-block text-nowrap font-sans-serif">{{ 'Last update'|t }}:</div>
+            <p class="fw-semibold font-monospace text-nowrap">{{ node.getChangedTime|date('d/m/Y, H:i') }}</p>
+
           {{ content.field_expiration_date }}
         </footer>
       </section>
