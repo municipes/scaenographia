@@ -85,11 +85,7 @@
 
             {% block heroTitle %}
               {% if _hero_title is not empty %}
-                {% set title_attributes = create_attribute() %}
-                {% if _hero_title|lower|trim == 'note legali'  %}
-                  {% set title_attributes = title_attributes.setAttribute('data-element', 'legal-notes-section') %}
-                {% endif %}
-                <h1{{ title_attributes }} class="text-black">{{ _hero_title }}</h1>
+                <h1 class="text-black">{{ _hero_title }}</h1>
               {% endif %}
             {% endblock %}
 
