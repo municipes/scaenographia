@@ -1,6 +1,6 @@
 name: "Scaenographia"
 type: theme
-description: "Scaenographia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design delle scuole.s"
+description: "Scaenographia is a drupal sub-theme, based on Bootstrap Italia, which implements the design of municipality."
 package: Municipium
 core_version_requirement: ^9 || ^10
 base theme: bootstrap_italia
