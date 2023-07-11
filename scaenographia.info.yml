@@ -5,6 +5,9 @@ package: Municipium
 core_version_requirement: ^9 || ^10
 base theme: bootstrap_italia
 
+'interface translation project': scaenographia
+'interface translation server pattern': themes/custom/%project/translations/%project.%language.po
+
 # Choose libraries to use. Global is managed with theme settings UI.
 libraries:
 #  - scaenographia/libraries-ui
