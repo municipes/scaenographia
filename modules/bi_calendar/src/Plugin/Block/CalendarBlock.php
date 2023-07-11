@@ -33,20 +33,20 @@ class CalendarBlock extends BlockBase {
   public function blockForm($form, FormStateInterface $form_state) {
     $form['bi_calendar_hp_start'] = [
       '#type' => 'number',
-      '#title' => $this->t('Numero di giorni precedenti ad oggi'),
-      '#description' => $this->t('Da quale giorno deve partire la visibilità. Inserire un numero negativo. Es: -4'),
+      '#title' => $this->t('Number of days prior to today'),
+      '#description' => $this->t('From what day should the visibility start? Enter a negative number. Ex: -4'),
       '#default_value' => $this->configuration['bi_calendar_hp_start'],
     ];
     $form['bi_calendar_hp_stop'] = [
       '#type' => 'number',
-      '#title' => $this->t('Numero di giorni dopo oggi'),
-      '#description' => $this->t('Fino a quale giorno deve arrivare la visibilità.'),
+      '#title' => $this->t('Number of days after today'),
+      '#description' => $this->t('Until what day should the visibility reach.'),
       '#default_value' => $this->configuration['bi_calendar_hp_stop'],
     ];
     $form['bi_calendar_days_number'] = [
       '#type' => 'number',
-      '#title' => $this->t('Numero di giorni da visualizzare'),
-      '#description' => $this->t('Numero di card giorno da visualizzare.'),
+      '#title' => $this->t('Number of days to display'),
+      '#description' => $this->t('Number of day cards to display.'),
       '#default_value' => $this->configuration['bi_calendar_days_number'],
     ];
 
