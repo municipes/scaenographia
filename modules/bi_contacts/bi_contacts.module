@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Module file for bi_contacts.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * Defines the theming capabilities provided by this module.
+ */
+function bi_contacts_theme($existing, $type, $theme, $path) {
+  return [
+    'bi_contacts_block' => [
+      // We use 'variables' when the item to be passed is an array whose
+      // structure must be described here.
+      'variables' => [
+        'items' => NULL,
+      ],
+    ],
+  ];
+}

@@ -1,0 +1,72 @@
+{% apply spaceless %}
+<div class="bg-200 shadow-contacts">
+  <div class="container">
+    <div class="row d-flex justify-content-center p-contacts">
+      <div class="col-12 col-lg-6">
+        <div class="cmp-contacts card-wrapper pt-5 pb-5">
+          <div class="card w-100 card-bg-white">
+            <div class="card-body link-list-wrapper">
+              <h2 class="h4">{{ 'Contact the municipality'|t }}</h2>
+              <ul class="contact-list p-0 it-list">
+                <li>
+                  {% set link_text %}
+                    <span class="list-item-title-icon-wrapper">
+                      {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-help-circle', color: 'primary'} %}
+                      <span class="list-item-title">{{ 'Read the frequently asked questions'|t }}</span>
+                    </span>
+                  {% endset %}
+                  {{ link(link_text, items.faq, create_attribute({'class': ['list-item', 'icon-left'], 'data-focus-mouse': ['false'] })) }}
+                </li>
+
+                <li>
+                  {% set link_text %}
+                    <span class="list-item-title-icon-wrapper">
+                      {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-mail', color: 'primary'} %}
+                      <span class="list-item-title">{{ 'Assistance request'|t }}</span>
+                    </span>
+                  {% endset %}
+                  {{ link(link_text, items.help, create_attribute({'class': ['list-item', 'icon-left'], 'data-focus-mouse': ['false'] })) }}
+                </li>
+
+                <li>
+                  {% set link_text %}
+                    <span class="list-item-title-icon-wrapper">
+                      {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-hearing', color: 'primary'} %}
+                      <span class="list-item-title">{{ 'Call the municipality'|t }}</span>
+                    </span>
+                  {% endset %}
+                  {{ link(link_text, items.call, create_attribute({'class': ['list-item', 'icon-left'], 'data-focus-mouse': ['false'] })) }}
+                </li>
+
+                <li>
+                  {% set link_text %}
+                    <span class="list-item-title-icon-wrapper">
+                      {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-calendar', color: 'primary'} %}
+                      <span class="list-item-title">{{ 'Book appointment'|t }}</span>
+                    </span>
+                  {% endset %}
+                  {{ link(link_text, items.reservation, create_attribute({'class': ['list-item', 'icon-left'], 'data-element': ['appointment-booking'] })) }}
+                </li>
+              </ul>
+
+              <h2 class="h4 mt-4">{{ 'Troubles in the city'|t }}</h2>
+              <ul class="contact-list p-0">
+                <li>
+                  {% set link_text %}
+                    <span class="list-item-title-icon-wrapper">
+                      {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-map-marker-circle', color: 'primary'} %}
+                      <span>{{ 'Report outage'|t }}</span>
+                    </span>
+                  {% endset %}
+                  {{ link(link_text, items.report, create_attribute({'class': ['list-item', 'icon-left'], 'data-focus-mouse': ['false'] })) }}
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endapply %}
