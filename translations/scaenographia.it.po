@@ -1,0 +1,785 @@
+# $Id$
+#
+# Italian translation of Scaenographia (theme)
+# Copyright 2023 Maurizio Cavalletti <maurizio@akabit.it>
+# Generated from files:
+#  /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_page_title.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_help.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_footer.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-item.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/components/navscroll/page-index.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/schema/scaenographia.schema.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/bi_calendar.info.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/src/Plugin/Block/CalendarBlock.php: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/bootstrap_italia_paragraph_date_timeline.info.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/bi_contacts.info.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/templates/bi-contacts-block.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bi_taxonomy_custom_controller/bi_taxonomy_custom_controller.info.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bi_toc/bi_toc.info.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bi_toc/js/tableOfContents.js: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/field/field--paragraph--field-argomento--argomenti-in-evidenza.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/field/field--paragraph--field-contenuti--in-evidenza.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/layout/footer/_partial.footer.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/dataset/node--type-dataset--view-mode-full.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--full.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/documento_pubblico/node--type-documento-pubblico--view-mode-full.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-full.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.date_timeline_item.field_date.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/evento/node--type-evento--view-mode-card.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/luogo/node--type-luogo--view-mode-card.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/luogo/node--type-luogo--view-mode-teaser-in-evidenza.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-card.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-1.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-2.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-teaser.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/pagina/node--type-pagina--view-mode-card.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/servizio/node--type-servizio--view-mode-card.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/unita_organizzativa/node--type-unita-organizzativa--view-mode-card.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/unita_organizzativa/node--type-unita-organizzativa--view-mode-teaser.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--teaser.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-hero.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--hero.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/servizio/node--type-servizio--view-mode-full.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/node/sito_tematico/node--type-sito-tematico--view-mode-card.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/region/brand/block--footer-brand.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/region/header-nav/menu--header-nav.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--card-teaser.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/views/views-exposed-form--bi-tutte-le-novita.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/views/views-exposed-form--bi-tutti-i-servizi-indice.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_search.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/templates/views/views-view--bi-tutti-i-servizi-indice--block-1.html.twig: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.languageswitcher.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_account_menu.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_branding.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_breadcrumbs.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_content.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_local_actions.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_local_tasks.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_main_menu.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.main.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_messages.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.slimtop.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.slim-top.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.smallprints.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.small-prints.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.footer.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/core.entity_form_display.paragraph.date_timeline.default.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.date_timeline.field_settings.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.date_timeline.field_text.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.date_timeline.field_timeline_item.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/paragraphs.paragraphs_type.date_timeline_item.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.date_timeline_item.field_title.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.days_timeline_item.field_title.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.days_timeline_item.field_days.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/paragraphs.paragraphs_type.date_timeline.yml: n/a
+#  /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/paragraphs.paragraphs_type.days_timeline_item.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.x\n"
+"POT-Creation-Date: 2023-07-11 15:10+0200\n"
+"PO-Revision-Date: 2023-07-11 15:10+0200\n"
+"Last-Translator: Maurizio Cavalletti <maurizio@akabit.it>\n"
+"Language-Team: Italian <daniela@akabit.it>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Scaenographia"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Scaenographia is a Drupal sub-theme, based on Bootstrap Italia, which implements the design of municipality."
+msgstr "Scaenographia è un sub tema Drupal, basato su Bootstrap Italia, che implementa il design dei comuni."
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Municipium"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Page top"
+msgstr "Inizio pagina"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Blocks disabled"
+msgstr "Blocchi disabilitati"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Slim header - Menu"
+msgstr "Slim header - Menu"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Slim header - Language"
+msgstr "Slim header - Lingua"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Slim header - Login and user menu"
+msgstr "Slim header - Login e menu utente"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Central Header - Logo and site branding"
+msgstr "Central Header - Logo e branding del sito"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Central Header - Social network"
+msgstr "Central Header - Social network"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Central Header - Search area"
+msgstr "Central Header - Area di ricerca"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Header Nav - Main menu"
+msgstr "Header Nav - Menu principale"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Breadcrumb"
+msgstr "Briciole di pane"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0 /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_page_title.yml:0
+msgid "Page title"
+msgstr "Titolo della pagina"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Administration tabs"
+msgstr "Schede di amministrazione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0 /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_help.yml:0
+msgid "Help"
+msgstr "Aiuto"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Notification area"
+msgstr "Area di notifica"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Main Content"
+msgstr "Contenuto principale"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Sidebar first"
+msgstr "Prima barra laterale"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Sidebar second"
+msgstr "Seconda barra laterale"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "After content - Full width region"
+msgstr "Dopo il contenuto - Area a larghezza intera"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Rating"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Contact"
+msgstr "Contatto"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Footer brand"
+msgstr "Piè di pagina - Brand"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Footer - First region"
+msgstr "Piè di pagina - Prima regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Footer - Second region"
+msgstr "Piè di pagina - Seconda regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Footer - Third region"
+msgstr "Piè di pagina - Terza regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Footer - Credits"
+msgstr "Piè di pagina - Autore del sito e riconoscimenti"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0 /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_footer.yml:0
+msgid "Footer menu"
+msgstr "Menu piè di pagina"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Footer - Small menu  prints: legal, privacy, etc."
+msgstr "Piè di pagina - Small menu  prints: legal, privacy, ecc."
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Page bottom"
+msgstr "Fondo pagina"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - First row full width"
+msgstr "Home page - Prima riga a tutta larghezza"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - First row - First region"
+msgstr "Home page - Prima riga - Prima regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - First row - Second region"
+msgstr "Home page - Prima riga - Seconda regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - First row - Third region"
+msgstr "Home page - Prima riga - Terza regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - First row - Fourth region"
+msgstr "Home page - Prima riga - Quarta regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Second row full width"
+msgstr "Home page - Seconda riga a tutta larghezza"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Second row - First region"
+msgstr "Home page - Seconda riga - Prima regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Second row - Second region"
+msgstr "Home page - Seconda riga - Seconda regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Second row - Third region"
+msgstr "Home page - Seconda fila - Terza regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Second row - Fourth region"
+msgstr "Home page - Seconda riga - Quarta regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Third row full width"
+msgstr "Home page - Terza riga a tutta larghezza"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Third row - First region"
+msgstr "Home page - Terza riga - Prima regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Third row - Second region"
+msgstr "Home page - Terza riga - Seconda regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Third row - Third region"
+msgstr "Home page - Terza fila - Terza regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Third row - Fourth region"
+msgstr "Home page - Terza fila - Quarta regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Fourth row full width"
+msgstr "Home page - Quarta riga a tutta larghezza"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Fourth row - First region"
+msgstr "Home page - Quarta riga - Prima regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Fourth row - Second region"
+msgstr "Home page - Quarta riga - Seconda regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Fourth row - Third region"
+msgstr "Home page - Quarta riga - Terza regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Fourth row - Fourth region"
+msgstr "Home page - Quarta riga - Quarta regione"
+
+#: /var/www/html/web/themes/custom/scaenographia/scaenographia.info.yml:0
+msgid "Home page - Last full width region"
+msgstr "Home page - Ultima regione a larghezza intera"
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig:14
+msgid "Category"
+msgstr "Categoria"
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig:36
+msgid "May 2022"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig:37
+msgid "June 2022"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig:38
+msgid "July 2022"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig:39
+msgid "August 2022"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig:40
+msgid "September 2022"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig:41
+msgid "Octobre 2022"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig:42
+msgid "November 2022"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig:43
+msgid "December 2022"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-demo.html.twig:47
+msgid "Timeline"
+msgstr "Timeline"
+
+#: /var/www/html/web/themes/custom/scaenographia/components/date-timeline/date-timeline-item.html.twig:37
+msgid "days"
+msgstr "giorni"
+
+#: /var/www/html/web/themes/custom/scaenographia/components/navscroll/page-index.html.twig:21 /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:170
+msgid "Back"
+msgstr "Indietro"
+
+#: /var/www/html/web/themes/custom/scaenographia/components/navscroll/page-index.html.twig:25
+msgid "Page index"
+msgstr "Indice della pagina"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/schema/scaenographia.schema.yml:0
+msgid "Scaenographia settings"
+msgstr "Impostazioni Scaenographia"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/bi_calendar.info.yml:0 /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:9
+msgid "Bootstrap Italia Calendar"
+msgstr "Calendario Bootstrap Italia"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/bi_calendar.info.yml:0
+msgid "This module adds a block with events calendar."
+msgstr "Questo modulo aggiunge un blocco con il calendario eventi"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/bi_calendar.info.yml:0 /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/bootstrap_italia_paragraph_date_timeline.info.yml:0
+msgid "Bootstrap Italia"
+msgstr "Bootstrap Italia"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:36
+msgid "Number of days prior to today"
+msgstr "Numero di giorni prima di oggi"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:37
+msgid "From what day should the visibility start? Enter a negative number. Ex: -4"
+msgstr "Da quanti giorni precedenti ad oggi deve iniziare la visibilità? Inserire un numero negativo. Es: -4"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:42
+msgid "Number of days after today"
+msgstr "Numero di giorni dopo oggi"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:43
+msgid "Until what day should the visibility reach."
+msgstr "Fino a che giorno dovrebbe arrivare la visibilità."
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:48
+msgid "Number of days to display"
+msgstr "Numero di giorni da visualizzare"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:49
+msgid "Number of day cards to display."
+msgstr "Numero di card giornaliere da visualizzare."
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_calendar/src/Plugin/Block/CalendarBlock.php:9
+msgid "Events Calendar block"
+msgstr "Blocco Calendario Eventi"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/bi_contacts.info.yml:0
+msgid "Contatti comune"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/bi_contacts.info.yml:0
+msgid "Blocco con i contatti del comune."
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/bi_contacts.info.yml:0
+msgid "Municipes"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:37
+msgid "/domande-frequenti"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:38;41
+msgid "/"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:39
+msgid "+39055055"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:40
+msgid "/prenota-appuntamento"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:59 /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/templates/bi-contacts-block.html.twig:15
+msgid "Read the frequently asked questions"
+msgstr "Leggi le domande frequenti"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:60
+msgid "The FAQ page link."
+msgstr "Link alla pagina delle FAQ, iniziare con /"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:65 /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/templates/bi-contacts-block.html.twig:25
+msgid "Assistance request"
+msgstr "Richiedi assistenza"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:66
+msgid "The Assistance page link."
+msgstr "Link alla pagina di richiesta assistenza, iniziare con /"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:71 /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/templates/bi-contacts-block.html.twig:35
+msgid "Call the municipality"
+msgstr "Chiama il comune"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:72
+msgid "The main municipality telephone number."
+msgstr "Il numero di telefono del comune, iniziare con +39"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:77 /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/templates/bi-contacts-block.html.twig:45
+msgid "Book appointment"
+msgstr "Prenota appuntamento"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:78
+msgid "The Reservation page link."
+msgstr "Link alla pagina di prenotazione appuntamento, iniziare con /"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:83 /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/templates/bi-contacts-block.html.twig:58
+msgid "Report outage"
+msgstr "Segnala disservizio"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:84
+msgid "The Disservice report page link."
+msgstr "Link alla pagina di segnalazione disservizio, iniziare con /"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:9
+msgid "Municipium: contacts"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/src/Plugin/Block/ContactsBlock.php:9
+msgid "Bootstrap Italia Contacts"
+msgstr "Bootstrap Italia Contatti"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/templates/bi-contacts-block.html.twig:9
+msgid "Contact the municipality"
+msgstr "Contatta il comune"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_contacts/templates/bi-contacts-block.html.twig:52
+msgid "Troubles in the city"
+msgstr "problemi in città"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_taxonomy_custom_controller/bi_taxonomy_custom_controller.info.yml:0
+msgid "Scaenographia Taxonomy Custom Controller"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_taxonomy_custom_controller/bi_taxonomy_custom_controller.info.yml:0
+msgid "Cambia il controller delle pagine di tassonomia."
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_toc/bi_toc.info.yml:0
+msgid "Bootstrap Italia Toc js"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_toc/bi_toc.info.yml:0
+msgid "Build a hierarchical table of contents from header tags present on a page with the tableOfContents.js library."
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bi_toc/js/tableOfContents.js:0
+msgid "Table of Contents"
+msgstr "Indice"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/bootstrap_italia_paragraph_date_timeline.info.yml:0
+msgid "Bootstrap Italia Paragraph Date Timeline"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/bootstrap_italia_paragraph_date_timeline.info.yml:0
+msgid "This module manages the timeline component through the paragraph module."
+msgstr "Questo modulo gestisce il componente timeline tramite Paragraphs."
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:9
+msgid "How clear is the information on this page?"
+msgstr "Quanto sono chiare le informazioni su questa pagina?"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:13;20;28;36;44;52
+msgid "Rate the page from @minstars to @maxstars stars"
+msgstr "Valuta da @minstars a @maxstars la pagina"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:59
+msgid "Thank you, your opinion will help us improve the service!"
+msgstr "Grazie, il tuo parere ci aiuterà a migliorare il servizio!"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:69
+msgid "What were your favorite aspects?"
+msgstr "Quali sono stati gli aspetti che hai preferito?"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:81
+msgid "The directions were clear"
+msgstr "Le indicazioni erano chiare"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:85
+msgid "The directions were complete"
+msgstr "Le indicazioni erano complete"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:89
+msgid "I always understood that I was proceeding correctly"
+msgstr "Capivo sempre che stavo procedendo correttamente"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:93
+msgid "I haven't had any technical problems"
+msgstr "Non ho avuto problemi tecnici"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:97;137
+msgid "Other"
+msgstr "Altro"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:109
+msgid "Where did you encounter the greatest difficulties?"
+msgstr "Dove hai incontrato le maggiori difficoltà?"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:121
+msgid "Sometimes the directions weren't clear"
+msgstr "A volte le indicazioni non erano chiare"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:125
+msgid "Sometimes the directions weren't complete"
+msgstr "A volte le indicazioni non erano complete"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:129
+msgid "Sometimes I didn't understand if I was proceeding correctly"
+msgstr "A volte non capivo se stavo procedendo correttamente"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:133
+msgid "I had technical problems"
+msgstr "Ho avuto problemi tecnici"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:153
+msgid "Want to add more details?"
+msgstr " Vuoi aggiungere altri dettagli?"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:160
+msgid "Detail"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:163
+msgid "Enter up to 200 characters"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/block/block--valutazione.html.twig:171
+msgid "Forward"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/field/field--paragraph--field-argomento--argomenti-in-evidenza.html.twig:45 /var/www/html/web/themes/custom/scaenographia/templates/field/field--paragraph--field-contenuti--in-evidenza.html.twig:45
+msgid "Highlights"
+msgstr "In evidenza"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/layout/footer/_partial.footer.html.twig:60
+msgid "Contacts"
+msgstr "Contatti"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/layout/footer/_partial.footer.html.twig:74
+msgid "Follow us on"
+msgstr "Seguici su"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/node/dataset/node--type-dataset--view-mode-full.html.twig:90 /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--full.html.twig:156
+msgid "Last update"
+msgstr "Ultimo aggiornamento"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/node/documento_pubblico/node--type-documento-pubblico--view-mode-full.html.twig:76 /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-full.html.twig:90 /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.date_timeline_item.field_date.yml:0
+msgid "Date"
+msgstr "Data"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/node/documento_pubblico/node--type-documento-pubblico--view-mode-full.html.twig:81
+msgid "End date"
+msgstr "Data finale"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/node/evento/node--type-evento--view-mode-card.html.twig:98 /var/www/html/web/themes/custom/scaenographia/templates/node/luogo/node--type-luogo--view-mode-card.html.twig:95 /var/www/html/web/themes/custom/scaenographia/templates/node/luogo/node--type-luogo--view-mode-teaser-in-evidenza.html.twig:87 /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-card.html.twig:87 /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-1.html.twig:90 /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-2.html.twig:91 /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-teaser.html.twig:87 /var/www/html/web/themes/custom/scaenographia/templates/node/pagina/node--type-pagina--view-mode-card.html.twig:83 /var/www/html/web/themes/custom/scaenographia/templates/node/servizio/node--type-servizio--view-mode-card.html.twig:83 /var/www/html/web/themes/custom/scaenographia/templates/node/unita_organizzativa/node--type-unita-organizzativa--view-mode-card.html.twig:83 /var/www/html/web/themes/custom/scaenographia/templates/node/unita_organizzativa/node--type-unita-organizzativa--view-mode-teaser.html.twig:82 /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--teaser.html.twig:83
+msgid "Read more about:"
+msgstr "Leggi ancora riguardo a:"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-full.html.twig:94
+msgid "Read time"
+msgstr "Tempo di lettura"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-hero.html.twig:76 /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--hero.html.twig:76
+msgid "Read More"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-1.html.twig:72
+msgid "Featured content"
+msgstr "Contenuti in evidenza"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-teaser-in-evidenza-2.html.twig:81
+msgid "Go to page"
+msgstr "Vai alla pagina"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/node/servizio/node--type-servizio--view-mode-full.html.twig:120 /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--full.html.twig:86
+msgid "Details"
+msgstr "Dettagli"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/node/sito_tematico/node--type-sito-tematico--view-mode-card.html.twig:94
+msgid "Go to website:"
+msgstr "Vai al sito:"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/region/brand/block--footer-brand.html.twig:21;25
+msgid "Home"
+msgstr "Home"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/region/header-nav/menu--header-nav.html.twig:33
+msgid "Primary"
+msgstr "Principale"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/region/header-nav/menu--header-nav.html.twig:42
+msgid "Secondary"
+msgstr "Secondario"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/region/header-nav/menu--header-nav.html.twig:98
+msgid "Current Page"
+msgstr "Pagina corrente"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--card-teaser.html.twig:88
+msgid "Further details"
+msgstr "Ulteriori dettagli"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/views/views-exposed-form--bi-tutte-le-novita.html.twig:20 /var/www/html/web/themes/custom/scaenographia/templates/views/views-exposed-form--bi-tutti-i-servizi-indice.html.twig:20 /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_search.yml:0
+msgid "Search"
+msgstr "Cerca"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/views/views-exposed-form--bi-tutte-le-novita.html.twig:22 /var/www/html/web/themes/custom/scaenographia/templates/views/views-exposed-form--bi-tutti-i-servizi-indice.html.twig:22
+msgid "Search by keyword"
+msgstr "Cerca con parole chiave"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/views/views-exposed-form--bi-tutte-le-novita.html.twig:28 /var/www/html/web/themes/custom/scaenographia/templates/views/views-exposed-form--bi-tutti-i-servizi-indice.html.twig:28
+msgid "Submit"
+msgstr "Invia"
+
+#: /var/www/html/web/themes/custom/scaenographia/templates/views/views-view--bi-tutti-i-servizi-indice--block-1.html.twig:72
+msgid "Featured services"
+msgstr "Servizi in evidenza"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.languageswitcher.yml:0
+msgid "Language switcher"
+msgstr "Selettore lingua"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_account_menu.yml:0
+msgid "User account menu"
+msgstr "Menu profilo utente"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_branding.yml:0
+msgid "Site branding"
+msgstr "Branding del sito"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_breadcrumbs.yml:0
+msgid "Breadcrumbs"
+msgstr "Breadcrumb"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_content.yml:0
+msgid "Main page content"
+msgstr "Contenuto della pagina principale"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_local_actions.yml:0
+msgid "Primary admin actions"
+msgstr "Azioni di amministrazione principali"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_local_tasks.yml:0
+msgid "Tabs"
+msgstr "Schede"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_main_menu.yml:0 /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.main.yml:0
+msgid "Main navigation"
+msgstr "Navigazione principale"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.scaenographia_messages.yml:0
+msgid "Status messages"
+msgstr "Messaggi di stato"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.slimtop.yml:0 /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.slim-top.yml:0
+msgid "Slim top"
+msgstr "Zona superiore sottile"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/block.block.smallprints.yml:0 /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.small-prints.yml:0
+msgid "Small prints"
+msgstr "Small prints"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.footer.yml:0
+msgid "Footer"
+msgstr "Piè di pagina"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.footer.yml:0
+msgid "Site information links"
+msgstr "Collegamenti informazioni sito"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.main.yml:0
+msgid "Site section links"
+msgstr "Collegamenti sezioni del sito"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.slim-top.yml:0
+msgid "Top slim menu"
+msgstr "Top slim menu"
+
+#: /var/www/html/web/themes/custom/scaenographia/config/optional/system.menu.small-prints.yml:0
+msgid "Footer legal links"
+msgstr "Footer: link legali"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/core.entity_form_display.paragraph.date_timeline.default.yml:0;0
+msgid "Paragrafo"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/core.entity_form_display.paragraph.date_timeline.default.yml:0;0
+msgid "Paragrafi"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.date_timeline.field_settings.yml:0
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.date_timeline.field_text.yml:0
+msgid "Text"
+msgstr "Testo"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.date_timeline.field_timeline_item.yml:0 /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/paragraphs.paragraphs_type.date_timeline_item.yml:0
+msgid "Date Timeline item"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.date_timeline_item.field_title.yml:0 /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.days_timeline_item.field_title.yml:0
+msgid "Title"
+msgstr "Titolo"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.days_timeline_item.field_days.yml:0
+msgid "Days"
+msgstr "Giorni"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/field.field.paragraph.days_timeline_item.field_days.yml:0
+msgid "Days number"
+msgstr "Numeri di giorni"
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/paragraphs.paragraphs_type.date_timeline.yml:0
+msgid "Date Timeline"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/paragraphs.paragraphs_type.date_timeline.yml:0
+msgid "This paragraph manage date timeline component."
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/paragraphs.paragraphs_type.date_timeline_item.yml:0
+msgid "This paragraph manage timeline item."
+msgstr "Questo paragrafo gestisce l'elemento timeline."
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/paragraphs.paragraphs_type.days_timeline_item.yml:0
+msgid "Days Timeline item"
+msgstr ""
+
+#: /var/www/html/web/themes/custom/scaenographia/modules/bootstrap_italia_paragraph_date_timeline/config/optional/paragraphs.paragraphs_type.days_timeline_item.yml:0
+msgid "This paragraph manage date timeline item."
+msgstr ""
+
