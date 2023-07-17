@@ -40,6 +40,7 @@
 #  /var/www/html/web/themes/custom/scaenographia/templates/node/servizio/node--type-servizio--view-mode-card.html.twig: n/a
 #  /var/www/html/web/themes/custom/scaenographia/templates/node/unita_organizzativa/node--type-unita-organizzativa--view-mode-card.html.twig: n/a
 #  /var/www/html/web/themes/custom/scaenographia/templates/node/unita_organizzativa/node--type-unita-organizzativa--view-mode-teaser.html.twig: n/a
+#  /var/www/html/web/themes/contrib/scaenographia/templates/region/sidebars/region--sidebar-first.html.twig: n/a
 #  /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--teaser.html.twig: n/a
 #  /var/www/html/web/themes/custom/scaenographia/templates/node/notizia/node--type-notizia--view-mode-hero.html.twig: n/a
 #  /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--hero.html.twig: n/a
@@ -646,6 +647,10 @@ msgstr "Secondario"
 #: /var/www/html/web/themes/custom/scaenographia/templates/region/header-nav/menu--header-nav.html.twig:98
 msgid "Current Page"
 msgstr "Pagina corrente"
+
+#: /var/www/html/web/themes/contrib/scaenographia/templates/region/sidebars/region--sidebar-first.html.twig:27
+msgid "Filters to apply"
+msgstr "Filtri da applicare"
 
 #: /var/www/html/web/themes/custom/scaenographia/templates/view-mode/node--view-mode--card-teaser.html.twig:88
 msgid "Further details"
