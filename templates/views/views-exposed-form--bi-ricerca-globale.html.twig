@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Theme override for a views exposed form.
+ *
+ * Available variables:
+ * - form: A render element representing the form.
+ *
+ * @see template_preprocess_views_exposed_form()
+ */
+#}
+{% if q is not empty %}
+  {#
+    This ensures that, if clean URLs are off, the 'q' is added first,
+    as a hidden form element, so that it shows up first in the POST URL.
+    #}
+  {{ q }}
+{% endif %}
+<div class="input-group my-5">
+  <label for="autocomplete-autocomplete-three" class="visually-hidden">{{ 'Search'|t }}</label>
+  <input type="text" class="autocomplete form-control"
+    placeholder="{{ 'Search by keyword'|t }}" id="autocomplete-autocomplete-three"
+    name="ftxt" data-bs-autocomplete="[]">
+
+  <div class="input-group-append">
+    {% set _button_attributes = create_attribute() %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+        label: 'Submit'|t,
+        variant: 'primary',
+        tag: 'button',
+        type: 'submit',
+        button_attributes: _button_attributes.setAttribute('id', 'button-' ~ random())
+    } %}
+  </div>
+  <span class="autocomplete-icon" aria-hidden="true">
+    {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-search', color: 'primary', size: 'sm'} %}
+  </span>
+</div>
