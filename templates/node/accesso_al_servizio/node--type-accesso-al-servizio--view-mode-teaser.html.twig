@@ -69,26 +69,38 @@
  * @ingroup themeable
  */
 #}
-{% set address = node.field_luogo.entity.field_indirizzo.getValue() %}
-{% set card_text %}
-  {{ content.field_descrizione_breve }}
-
-  {{ address[0]['address_line1'] }}<br>
-  {{ address[0]['postal_code'] }} {{ address[0]['locality'] }}
-{% endset %}
-
-{% embed '@bi-bcl/card/card.html.twig' with {
-  card_title: label,
-  card_text: card_text,
-  card_teaser: true,
-  card_shadow: true,
-  card_attributes: attributes
+{% apply spaceless %}
+{% set map = {
+  'on-line': {
+    'data-element': 'service-online-access',
+    'outline': false
+  },
+  'per-appuntamento': {
+    'data-element': 'service-booking-access',
+    'outline': true
+  }
 } %}
+{% set access_type = node.field_tipo_di_accesso.entity.label()|clean_class %}
+{% set button_attributes = create_attribute() %}
 
-  {% block cardTitle %}
-    <h3{{ title_attributes.addClass(['card-title', 'h5']) }}>
-      <a href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">{{ label }}</a>
-    </h3>
-  {% endblock %}
-
-{% endembed %}
+<div>
+  <div class="text-paragraph mb-4">
+    <p>{{ content.field_descrizione_breve }}</p>
+  </div>
+  <div class="mb-4">
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: node.field_link.0.getTitle(),
+      variant: 'primary',
+      tag: 'button',
+      outline: map[access_type]['outline'],
+      button_attributes: button_attributes
+        .setAttribute('onclick', 'location.href=\'' ~ node.field_link.0.getUrl().toString() ~ '\';')
+        .setAttribute('data-element', map[access_type]['data-element']),
+   } %}
+    {# <button type="button" onclick="location.href='{{ node.field_link.0.getUrl().toString() }}';"
+           data-element="{{ map[access_type] }}">
+       <span class="">{{ node.field_link.0.getTitle() }}</span>
+   </button> #}
+  </div>
+</div>
+{% endapply %}

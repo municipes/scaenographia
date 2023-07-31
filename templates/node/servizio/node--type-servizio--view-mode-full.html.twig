@@ -125,32 +125,40 @@
   {% endblock %}
 
   {% block meta %}
+    {% set map = {
+      'on-line': {
+        'data-element': 'service-online-access',
+        'outline': false,
+        'class': ''
+      },
+      'per-appuntamento': {
+        'data-element': 'service-booking-access',
+        'outline': true,
+        'class': 'text-primary'
+      }
+    } %}
     <div class="row mt-5 mb-4">
-      <div class="col-6">
-        {% set button_attributes = create_attribute() %}
-        {% set digital_channel = node.field_accedi_al_servizio.0.entity %}
-        {# {% set reservation = node.field_accedi_al_servizio.1.entity ? node.field_accedi_al_servizio.1.entity : false %} #}
+      {% set button_attributes = create_attribute() %}
+      {% for item in node.field_accedi_al_servizio %}
+        {% if item.entity.bundle() == 'accesso_al_servizio' %}
+        <div class="col-6">
+          {% set channel = item.entity %}
+          {% set access_type = channel.field_tipo_di_accesso.entity.label()|clean_class %}
 
-        {% include '@bi-bcl/button/button.html.twig' with {
-          label: digital_channel.field_link.0.title,
-          tag: 'a',
-          url: digital_channel.field_link.0.getUrl().toString(),
-          button_classes: ['btn', 'btn-primary', 'fw-bold', 'px-5'],
-          button_attributes: button_attributes.setAttribute('data-element', 'service-generic-access')
-        } %}
-
-        {# {% if reservation %}
           {% include '@bi-bcl/button/button.html.twig' with {
-            label: reservation.field_link.0.title,
+            label: channel.field_link.0.getTitle(),
             tag: 'a',
-            variant: 'white',
-            url: reservation.field_link.0.getUrl().toString(),
-            button_classes: ['text-primary', 'btn', 'btn-outline-primary', 'fw-bold', 'px-5', 'ms-6'],
-            button_attributes: button_attributes.setAttribute('data-element', 'service-description')
+            url: channel.field_link.0.getUrl().toString(),
+            variant: 'primary',
+            button_classes: ['fw-bold', 'px-5'],
+            outline: map[access_type]['outline'],
+            button_attributes: button_attributes
+              .setAttribute('data-element', 'service-description')
+              .addClass([map[access_type]['class']])
           } %}
-        {% endif %} #}
-
-      </div>
+        </div>
+        {% endif %}
+      {% endfor %}
     </div>
   {% endblock %}
 
