@@ -1,7 +1,12 @@
-<div class="lightgrey-bg-a1">
+{% set classes = [
+  'pt-4',
+] %}
+{% set classes = classes|merge(element['#classes']) %}
+
+<div{{ attributes.addClass(classes) }}>
   <div class="container">
     <div class="row">
-      <h2 class="visually-hidden">Esplora tutti i servizi</h2>
+      <h2 class="visually-hidden">{{ element['#title'] }}</h2>
       {{ element['#view'] }}
     </div>
   </div>
