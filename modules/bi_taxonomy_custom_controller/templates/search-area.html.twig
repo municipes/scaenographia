@@ -1,12 +1,7 @@
-{% set classes = [
-  'py-5',
-] %}
-{% set classes = classes|merge(element['#classes']) %}
-
-<div{{ attributes.addClass(classes).removeClass('lightgrey-bg-a1').addClass('neutral-2-bg') }}>
+<div class="lightgrey-bg-a1">
   <div class="container">
     <div class="row">
-      <h2 class="visually-hidden">{{ element['#title'] }}</h2>
+      <h2 class="visually-hidden">Esplora tutti i servizi</h2>
       {{ element['#view'] }}
     </div>
   </div>

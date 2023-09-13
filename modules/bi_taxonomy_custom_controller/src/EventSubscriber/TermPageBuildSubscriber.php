@@ -30,7 +30,19 @@ class TermPageBuildSubscriber implements EventSubscriberInterface {
   public function onTermPageBuild(TermPageBuildEvent $event) {
     $taxonomy_term = $event->getTaxonomyTerm();
 
+    if ($taxonomy_term->bundle() != 'categorie_dei_servizi') {
+      return;
+    }
+
     $build = [];
+    // Provide default content to react on all pages.
+    // $build['hello'] = [
+    //   '#markup' => new TranslatableMarkup('This content was added from @module just as an example.', [
+    //     '@module' => 'taxonomy_custom_controller_example',
+    //   ]),
+    //   '#prefix' => '<p>',
+    //   '#suffix' => '</p>',
+    // ];
 
     $content['title'] = $taxonomy_term->get('name')->value;
     $content['description'] = $taxonomy_term->get('description')->value;
@@ -41,35 +53,15 @@ class TermPageBuildSubscriber implements EventSubscriberInterface {
       '#items' => $content,
     );
 
-    switch ($taxonomy_term->bundle()) {
-      case 'categorie_dei_servizi':
-        $view = views_embed_view('bi_tutti_i_servizi_indice', 'block_1');
-        if ($view) {
-          $build['search_area'] = array(
-            '#theme' => 'search_area',
-            '#theme_wrappers' => ['search_area'],
-            '#view' => $view,
-            '#title' => 'Esplora tutti i servizi',
-            '#classes' => ['lightgrey-bg-a1'],
-          );
-        }
-        break;
 
-      default:
-        $term = \Drupal::routeMatch()->getParameter('taxonomy_term');
-        $view = views_embed_view('taxonomy_term', 'block_1', $term->id());
-        if ($view) {
-          $build['search_area'] = array(
-            '#theme' => 'search_area',
-            '#theme_wrappers' => ['search_area'],
-            '#view' => $view,
-            '#title' => 'Esplora per termine',
-            '#classes' => [],
-          );
-        }
-        break;
-    }
-
+    // $view = views_embed_view('bi_tutti_i_servizi_indice', 'block_1');
+    // if ($view) {
+    //   $build['search_area'] = array(
+    //     '#theme' => 'search_area',
+    //     '#theme_wrappers' => ['search_area'],
+    //     '#view' => $view,
+    //   );
+    // }
 
     $event->setBuildArray($build);
   }
