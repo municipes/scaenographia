@@ -22,6 +22,8 @@ node_full_field:
     address:
       label: Address
       description: For address field
+    # links:
+    #   label: Links
 
   # Settings (ui_patterns_settings module).
   settings:
@@ -127,6 +129,16 @@ node_full_field:
       label: 'CAP'
       description: 'Indirizzo.'
       preview: '50122'
+    # field_link_text:
+    #   type: text
+    #   label: 'Link text'
+    #   description: 'Testo del collegamento'
+    #   preview: 'My link'
+    # field_link_uri:
+    #   type: text
+    #   label: 'Link URI'
+    #   description: 'URI del collegamento'
+    #   preview: 'My link'
 
   # Optional: Attached libraries.
   #
