@@ -111,6 +111,29 @@
     {% endembed %}
   {% endif %}
 
+  {# variant links #}
+  {% if variant == 'links' %}
+    {% set card_text %}
+      <div class="mb-5 fs-6">
+        <a href="{{ field_link_uri }}">{{ field_link_text }}</a>
+      </div>
+    {% endset %}
+
+    {% embed '@bi-bcl/card/card.html.twig' with {
+      card_title: label,
+      card_text: card_text,
+      card_teaser: true,
+      card_shadow: false,
+      card_border: true,
+      card_classes: [''],
+      card_attributes: _attributes
+    } %}
+
+      {% block cardTitle %}{% endblock %}
+
+    {% endembed %}
+  {% endif %}
+
 </article>
 
 

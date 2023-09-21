@@ -93,7 +93,7 @@
 {% set label = node.label %}
 {% set value = node.field_valore_punto_di_contatto.value %}
 
-<div class="col-lg-6 p-1 mb-2">
+<div class="col-lg-6 p-1 mb-2 card-teaser-info">
   {% if map[type] %}
     {% include '@bi-bcl/icon/icon.html.twig' with {
       name: map[type],

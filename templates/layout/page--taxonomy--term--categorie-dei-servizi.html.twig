@@ -66,6 +66,51 @@
     {% endblock %}
 
     {% block contentTitle %}{% endblock %}
+    {% block contentMain %}
+      {% set _main_container_classes = [
+        content_container_type ?: 'container',
+        page.sidebar_first and not page.sidebar_second ? 'has-one-sidebar',
+        page.sidebar_second and not page.sidebar_first ? 'has-one-sidebar',
+        page.sidebar_first and page.sidebar_second ? 'has-two-sidebars',
+      ] %}
+
+      {% set _sidebar_width = page.sidebar_first and page.sidebar_second ? 'col-lg-3' : 'col-lg-4' %}
+      {% set _content_width = [
+        not page.sidebar_first and not page.sidebar_second ? 'col-12',
+        page.sidebar_first and not page.sidebar_second ? 'col-lg-8',
+        page.sidebar_second and not page.sidebar_first ? 'col-lg-8',
+        page.sidebar_first and page.sidebar_second ? 'col-lg-6',
+      ] %}
+      {% set container_attribute = create_attribute().addClass(_main_container_classes) %}
+
+      <div{{ container_attribute.removeClass('container') }} }}">
+        <div class="row">
+          {# Sidebar First #}
+          {% block contentSidebarFirst %}
+            {% if page.sidebar_first %}
+              <aside class="{{ _sidebar_width }} it-sidebar-first__wrapper" role="complementary">
+                {{ page.sidebar_first }}
+              </aside>
+            {% endif %}
+          {% endblock %}
+
+          <div class="{{ _content_width|join(' ')|trim }}">
+            <div class="it-content__wrapper">
+              {{ page.content }}
+            </div>
+          </div> {# End col #}
+
+          {# Sidebar Second #}
+          {% block contentSidebarSecond %}
+            {% if page.sidebar_second %}
+              <aside class="{{ _sidebar_width }} it-sidebar-second__wrapper" role="complementary">
+                {{ page.sidebar_second }}
+              </aside>
+            {% endif %}
+          {% endblock %}
+        </div> {# End row #}
+      </div> {# End container #}
+    {% endblock %}
 
   {% endembed %}
   {% include '@bootstrap_italia/layout/content/_partial.after-content.html.twig' %}

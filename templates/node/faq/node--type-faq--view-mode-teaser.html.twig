@@ -69,36 +69,13 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/card/card.html.twig' with {
-  card_title: label,
-  card_text: content.field_descrizione_breve|render|striptags,
-  card_teaser: true,
-  card_shadow: false,
-  card_classes: ['h-100'],
-  card_attributes: attributes.setAttribute('style', 'background-color: blue')
-} %}
+{% apply spaceless %}
 
-  {% block cardImage %}
-    {% if content.field_immagine[0] %}
-      {% include '@bi-bcl/avatar/avatar.html.twig' with {
-        avatar_type: 'image',
-        avatar_image: content.field_immagine,
-        avatar_size: 'xl',
-        avatar_classes: ['me-3'],
-      } %}
-    {% endif %}
-  {% endblock %}
+{% include '@bi-bcl/accordion/accordion-item.html.twig' with {
+    item_title: label,
+    item_body: content.body,
+    item_show: false,
+    container_id: always_open ? 'id-' ~ node.id() : ''
+  } %}
 
-  {% block cardTitle %}
-    <h3{{ title_attributes.addClass(['card-title', 'h3']) }}>
-      <a class="text-decoration-none text-white" href="{{ node.field_link.0.getUrl().toString() }}" title="{{ 'Go to website:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">{{ label }}</a>
-    </h3>
-  {% endblock %}
-
-  {% block cardText %}
-    {% if _card_text is not empty %}
-      <div class="card-text text-white lh-base fs-6">{{ _card_text }}</div>
-    {% endif %}
-  {% endblock %}
-
-{% endembed %}
+{% endapply %}
