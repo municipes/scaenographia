@@ -92,6 +92,7 @@
 
   {% block content %}
     {{ content|without(
+      'field_descrizione_breve',
       'field_competenze',
       'field_argomenti',
       'node_read_time',
