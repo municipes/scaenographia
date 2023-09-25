@@ -41,7 +41,7 @@ cdn:
 hot:
   css:
     theme:
-      http://127.0.0.1:8080/css/bootstrap-italia.min.css: { type: external, minified: true }
+      http://127.0.0.1:8080/css/bootstrap-italia-comuni.min.css: { type: external, minified: true }
   js:
     http://127.0.0.1:8080/js/bootstrap-italia.min.js: { type: external, minified: true }
   dependencies:
@@ -62,7 +62,7 @@ hot:
 ddev:
   css:
     theme:
-      http://project-name.ddev.site:8080/css/bootstrap-italia.min.css: { type: external, minified: true }
+      http://project-name.ddev.site:8080/css/bootstrap-italia-comuni.min.css: { type: external, minified: true }
   js:
     http://project-name.ddev.site:8080/js/bootstrap-italia.min.js: { type: external, minified: true }
   dependencies:
