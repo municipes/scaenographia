@@ -25,7 +25,7 @@ libraries:
 #   - dist/css/bootstrap-italia.min.css
 
 ckeditor5-stylesheets:
- - dist/css/bootstrap-italia-comuni.min.css
+ - dist/css/ckeditor5-comuni.min.css
 
 # hidden: true # <---- Remember to set false, comment or delete line
 
