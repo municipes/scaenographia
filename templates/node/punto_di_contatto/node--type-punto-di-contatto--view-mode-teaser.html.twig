@@ -69,11 +69,12 @@
  * @ingroup themeable
  */
 #}
-{# set variables #}
+{% apply spaceless %}
 {% set map = {
     'email': 'it-mail',
     'pec': 'it-mail',
     'telefono': 'it-telephone',
+    'fax': 'it-print',
     'linkedin': 'it-linkedin',
     'skype': 'it-comment',
     'telegram': 'it-telegram',
@@ -89,9 +90,9 @@
     'whatsapp',
 ] %}
 
-{% set type = node.field_tipo_punto_di_contatto.entity.label|lower %}
+{% set type = node.field_contatto.entity.field_tipo_punto_di_contatto.entity.label|lower %}
 {% set label = node.label %}
-{% set value = node.field_valore_punto_di_contatto.value %}
+{% set values = node.field_contatto.entity.field_valore_punto_di_contatto.getValue() %}
 
 <div class="col-lg-6 p-1 mb-2 card-teaser-info">
   {% if map[type] %}
@@ -102,21 +103,28 @@
     } %}
   {% endif %}
 
-  {% if type|lower == 'url' %}
-    {% set label = link(label, value, { 'class':['h6']}) %}
-    {% set value = false %}
-  {% endif %}
+  <span class="label h6 fw-bold px-3 fw-semibold">{{ label }} </span>
 
-  {% if type|lower == 'telefono' %}
-    {% set value = link(value, 'tel:' ~ value, { 'class':['h6']}) %}
-  {% endif %}
+  {% for value_array in values %}
+    {% set value = value_array.value %}
 
-  {% if type|lower == 'email' or type|lower == 'pec' %}
-    {% set value = link(value, 'mailto:' ~ value, { 'class':['h6']}) %}
-  {% endif %}
+    {% if type|lower == 'url' %}
+      {% set label = link(label, value, { 'class':['h6']}) %}
+      {% set value = false %}
+    {% endif %}
+
+    {% if type|lower == 'telefono' %}
+      {% set value = link(value, 'tel:' ~ value, { 'class':['h6']}) %}
+    {% endif %}
+
+    {% if type|lower == 'email' or type|lower == 'pec' %}
+      {% set value = link(value, 'mailto:' ~ value, { 'class':['h6']}) %}
+    {% endif %}
 
     {% if type|lower in social_map %}{% set label = false %}{% endif %}
 
-  <span class="label h6 fw-bold px-3 fw-semibold">{{ label }} </span>
-  {% if value %}<span class="value fs-6">{{ value }}</span>{% endif %}
+    {% if value %}<div class="value fs-6">{{ value }}</div>{% endif %}
+
+  {% endfor %}
 </div>
+{% endapply %}
