@@ -141,11 +141,11 @@
       {% set button_attributes = create_attribute() %}
       {% for item in node.field_accedi_al_servizio %}
         {% if item.entity.bundle() == 'accesso_al_servizio' %}
-        <div class="col-6">
-          {% set channel = item.entity %}
-          {% set access_type = channel.field_tipo_di_accesso.entity.label()|clean_class %}
+          <div class="col-6">
+            {% set channel = item.entity %}
+            {% set access_type = channel.field_tipo_di_accesso.entity.label()|clean_class %}
 
-          {% include '@bi-bcl/button/button.html.twig' with {
+            {% include '@bi-bcl/button/button.html.twig' with {
             label: channel.field_link.0.getTitle(),
             tag: 'a',
             url: channel.field_link.0.getUrl().toString(),
@@ -156,10 +156,42 @@
               .setAttribute('data-element', 'service-description')
               .addClass([map[access_type]['class']])
           } %}
-        </div>
+          </div>
         {% endif %}
       {% endfor %}
     </div>
   {% endblock %}
 
 {% endembed %}
+{% set address = content.field_unita_organizzative['#items'][0].entity.field_luogo.entity.field_indirizzo.getValue() %}
+{% if node.field_copertura_geografica.value %}
+  {% set areaServed = node.field_copertura_geografica.value|raw|striptags|trim %}
+{% endif %}
+{% if node.field_a_chi_e_rivolto.value %}
+  {% set audience = node.field_a_chi_e_rivolto.value|raw|striptags|trim %}
+{% endif %}
+<script data-element="metatag" type="application/ld+json">
+  {
+      "name": "{{ node.label }}",
+      "serviceType": "{{ drupal_field('name', 'taxonomy_term', node.field_categoria_del_servizio.value[0]['target_id'])[0]['#context']['value'] }}",
+      "serviceOperator": {
+        "name": "{{ node.field_codice_dell_ente_erogatore.value }}"
+      },
+      "areaServed": {
+        "name": "{{ areaServed }}"
+      },
+      "audience": {
+        "audienceType": "{{ audience }}"
+      },
+      "availableChannel": {
+        "serviceUrl": "{{ url }}",
+        "serviceLocation": {
+          "name": "{{ content.field_unita_organizzative['#items'][0].entity.title.value }}",
+          "address": {
+            "streetAddress": "{{ address.0.address_line1 }}",
+            "postalCode": "{{ address.0.postal_code }}",
+            "addressLocality": "{{ content.field_unita_organizzative['#items'][0].field_circoscrizione }}"
+          }
+        }
+      }
+    }</script>
