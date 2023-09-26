@@ -60,7 +60,7 @@
         {{ content }}
       </div>
       {% if term.bundle() == 'argomenti' %}
-        {{ drupal_view('bi_argomenti_node', 'block_1', term.id())}}
+        {{ drupal_view('bi_argomenti_nodi', 'block_1', term.id())}}
       {% endif %}
 
     {% endblock %}
