@@ -190,7 +190,7 @@
           "address": {
             "streetAddress": "{{ address.0.address_line1 }}",
             "postalCode": "{{ address.0.postal_code }}",
-            "addressLocality": "{{ content.field_unita_organizzative['#items'][0].field_circoscrizione }}"
+            "addressLocality": "{{ address.0.locality }}"
           }
         }
       }
