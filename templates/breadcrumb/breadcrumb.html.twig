@@ -1,0 +1,5 @@
+{% set breadcrumb_attributes = create_attribute().setAttribute('data-element', 'breadcrumb') %}
+{% include '@bi-bcl/breadcrumb/breadcrumb.html.twig' with {
+  breadcrumb: breadcrumb,
+  breadcrumb_attributes: breadcrumb_attributes
+} %}

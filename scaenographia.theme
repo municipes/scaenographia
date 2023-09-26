@@ -61,7 +61,8 @@ function scaenographia_theme_suggestions_taxonomy_term_alter(array &$suggestions
     $suggestions[] = $variables['theme_hook_original']
       . '__view_mode__' . $variables['elements']['#view_mode'];
 
-    if (isset($variables['elements']['#taxonomy_term']) &&
+    if (
+      isset($variables['elements']['#taxonomy_term']) &&
       ($variables['elements']['#taxonomy_term'] instanceof Term)
     ) {
       $suggestions[] = $variables['theme_hook_original']
