@@ -75,7 +75,7 @@
   card_teaser: true,
   card_shadow: false,
   card_classes: ['h-100'],
-  card_attributes: attributes.setAttribute('style', 'background-color: blue')
+  card_attributes: attributes.setAttribute('style', 'background-color: ' ~ node.field_colore.entity.field_colore.value.0.color)
 } %}
 
   {% block cardImage %}
