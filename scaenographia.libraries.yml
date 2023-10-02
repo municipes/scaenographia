@@ -17,6 +17,7 @@ vanilla:
 custom:
   css:
     theme:
+      version.css: { minified: false }
       dist/css/bootstrap-italia-comuni.min.css: { minified: true }
   js:
     dist/js/bootstrap-italia-comuni.min.js: { minified: true }
