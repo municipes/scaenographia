@@ -71,29 +71,12 @@
 {% embed "@scaenographia/view-mode/node--view-mode--full.html.twig" %}
 
   {% block excerpt %}
-    {{ content.field_competenze }}
+    {{ content.field_descrizione_breve }}
   {% endblock %}
-
-  {% block meta %}{% endblock %}
-
-  {% block share %}
-    {% include '@bi-bcl/share/share-this.twig' with {
-      subject: label[0]['#context'].value,
-      description: content.field_competenze|render()|striptags|slice(0, 100),
-    } %}
-    {% include '@bi-bcl/share/content-actions.twig' with {
-      subject: label[0]['#context'].value,
-      description: content.field_competenze|render()|striptags|slice(0, 100),
-      read_element: 'read-this-element'
-    } %}
-  {% endblock %}
-
-  {% block arguments %}{% endblock %}
 
   {% block content %}
     {{ content|without(
       'field_descrizione_breve',
-      'field_competenze',
       'field_argomenti',
       'node_read_time',
       'field_immagine',
