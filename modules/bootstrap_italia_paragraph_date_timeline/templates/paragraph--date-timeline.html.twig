@@ -59,6 +59,7 @@
 ] %} #}
 
   {% block content %}
+    {{ content.field_text }}
     {% set timeline_attributes = create_attribute() %}
     {% embed '@scaenographia_components/date-timeline/date-timeline.html.twig' with {
       timeline_attributes: timeline_attributes.addClass('calendar-vertical', 'mb-3').setAttribute('data-element', 'service-calendar-list'),
