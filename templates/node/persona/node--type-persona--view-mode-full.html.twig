@@ -71,7 +71,7 @@
 {% embed "@scaenographia/view-mode/node--view-mode--full.html.twig" %}
 
   {% block excerpt %}
-    {{ content.field_competenze }}
+    {{ content.field_descrizione_breve }}
   {% endblock %}
 
   {% block meta %}{% endblock %}
@@ -93,7 +93,6 @@
   {% block content %}
     {{ content|without(
       'field_descrizione_breve',
-      'field_competenze',
       'field_argomenti',
       'node_read_time',
       'field_immagine',
