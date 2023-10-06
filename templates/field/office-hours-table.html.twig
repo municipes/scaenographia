@@ -1,0 +1,5 @@
+{% set random = random() %}
+<div class="office-hours">
+  <a class="" data-bs-toggle="collapse" href="#multiCollapseHours-{{ random }}" role="button" aria-expanded="false" aria-controls="multiCollapseHours-{{ random }}">{{ 'You open'|t }}</a>
+  <div class="collapse multi-collapse" id="multiCollapseHours-{{ random }}">{{ table }}</div>
+</div>
