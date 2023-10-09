@@ -69,7 +69,8 @@
  */
 #}
 {{ attach_library('bi_toc/bi_toc') }}
-<article{{attributes}}>
+{% set attributes = node.status.value == 0 ? attributes.addClass('node-unpublished') : attributes %}
+<article{{ attributes }}>
   <div class="container px-4 mb-4">
     <div class="row">
       <div class="col-lg-8 px-lg-4 py-lg-2">
