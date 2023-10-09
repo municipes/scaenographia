@@ -15,6 +15,10 @@ body {
   color: $primary !important; // in attesa di fix ufficiale
 }
 
+.node-unpublished {
+  background-color: rgba(255,20,90,0.1);
+}
+
 /** component date calendar **/
 .calendar-vertical .calendar-date {
 
