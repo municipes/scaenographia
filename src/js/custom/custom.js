@@ -8,5 +8,5 @@
 //import './example-alert-event'
 //import './example-bootstrap-italia-modules'
 
-import './scripts'
-import './rating'
+// import './scripts'
+// import './rating'
