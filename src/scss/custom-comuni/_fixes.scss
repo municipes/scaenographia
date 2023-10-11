@@ -112,7 +112,8 @@ h1.text-black span {
 
 .views-exposed-form {
 
-  input[type='text'] {
+  input[type='text'],
+  input[type='search'] {
     padding-left: 2.6rem;
   }
 

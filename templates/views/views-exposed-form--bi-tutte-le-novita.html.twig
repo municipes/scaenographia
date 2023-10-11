@@ -17,10 +17,11 @@
   {{ q }}
 {% endif %}
 <div class="input-group">
-  <label for="autocomplete-autocomplete-three" class="visually-hidden">{{ 'Search'|t }}</label>
-  <input type="text" class="autocomplete form-control"
-    placeholder="{{ 'Search by keyword'|t }}" id="autocomplete-autocomplete-three"
-    name="ftxt" data-bs-autocomplete="[]">
+  <label for="edit-novita" class="visually-hidden">{{ 'Search'|t }}</label>
+  <input type="search" class="form-search form-control focus--mouse"
+    placeholder="{{ 'Search by keyword'|t }}" id="edit-novita"
+    data-drupal-selector="edit-novita" value=""
+    name="ftxt" data-focus-mouse="true">
 
   <div class="input-group-append">
     {% set _button_attributes = create_attribute() %}
