@@ -50,6 +50,6 @@
     "webpack-merge": "^5.9.0"
   },
   "dependencies": {
-    "bootstrap-italia": "2.7.2"
+    "bootstrap-italia": "2.7.3"
   }
 }
