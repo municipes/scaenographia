@@ -131,6 +131,11 @@ h1.text-black span {
   background-color: $gray-100;
 }
 
+/* file fields */
+.field--type-file {
+  @extend .mb-3;
+}
+
 /** CT pagina **/
 body.page-node-type--pagina {
   .it-hero-wrapper.it-hero-small-size {
