@@ -22,6 +22,9 @@ node_full_field:
     address:
       label: Address
       description: For address field
+    chip:
+      label: Chip
+      description: Chip
     # links:
     #   label: Links
 

@@ -111,6 +111,15 @@
     {% endembed %}
   {% endif %}
 
+  {# variant chip #}
+  {% if variant == 'chip' %}
+    {% include '@bi-bcl/chip/chip.html.twig' with {
+			chip_label: field_value,
+			chip_color: 'primary',
+			chip_simple: true
+		} %}
+  {% endif %}
+
   {# variant links #}
   {% if variant == 'links' %}
     {% set card_text %}
