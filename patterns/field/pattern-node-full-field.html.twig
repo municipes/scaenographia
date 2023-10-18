@@ -120,6 +120,11 @@
 		} %}
   {% endif %}
 
+  {# variant date #}
+  {% if variant == 'date' %}
+    <div class="d-flex flex-wrap">{{ field_value|date('U')|format_date('bootstrap_italia_medium') }}</div>
+  {% endif %}
+
   {# variant links #}
   {% if variant == 'links' %}
     {% set card_text %}

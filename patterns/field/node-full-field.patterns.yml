@@ -25,6 +25,9 @@ node_full_field:
     chip:
       label: Chip
       description: Chip
+    date:
+      label: Date
+      description: Date in standard format
     # links:
     #   label: Links
 
