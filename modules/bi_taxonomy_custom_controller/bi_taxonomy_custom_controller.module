@@ -12,13 +12,25 @@
  */
 function bi_taxonomy_custom_controller_theme($existing, $type, $theme, $path) {
   return [
-    'term_area'  => [
+    // 'term_area'  => [
+    //   'variables' => [
+    //     'title' => NULL,
+    //     'description' => NULL,
+    //   ],
+    // ],
+    'search_area'  => [
       // We use 'render element' when the item to be passed is a self-describing
       // render array (it will have #theme_wrappers)
       'render element' => 'element',
     ],
-    'search_area'  => [
-      'render element' => 'element',
-    ],
   ];
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function bi_taxonomy_custom_controller_preprocess_page(&$variables) {
+  if ($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
+    $variables['term_description'] = $term->description->value;
+  }
 }

@@ -3,6 +3,8 @@
 namespace Drupal\bi_taxonomy_custom_controller\EventSubscriber;
 
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 use Drupal\taxonomy_custom_controller\Event\TaxonomyCustomControllerEvents;
 use Drupal\taxonomy_custom_controller\Event\TermPageBuildEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -32,14 +34,15 @@ class TermPageBuildSubscriber implements EventSubscriberInterface {
 
     $build = [];
 
-    $content['title'] = $taxonomy_term->get('name')->value;
-    $content['description'] = $taxonomy_term->get('description')->value;
+    // $content['title'] = $taxonomy_term->get('name')->value;
+    // $content['description'] = $taxonomy_term->get('description')->value;
 
-    $build['term_area'] = array(
-      '#theme' => 'term_area',
-      '#theme_wrappers' => ['term_area'],
-      '#items' => $content,
-    );
+    // $build['term_area'] = array(
+    //   '#theme' => 'term_area',
+    //   '#title' => $taxonomy_term->get('name')->value,
+    //   '#description' => $taxonomy_term->get('description')->value,
+
+    // );
 
     switch ($taxonomy_term->bundle()) {
       case 'categorie_dei_servizi':
@@ -50,21 +53,93 @@ class TermPageBuildSubscriber implements EventSubscriberInterface {
             '#theme_wrappers' => ['search_area'],
             '#view' => $view,
             '#title' => 'Esplora tutti i servizi',
-            '#classes' => ['lightgrey-bg-a1'],
+            '#classes' => [],
           );
         }
         break;
 
       default:
+        $classes = [
+          'btn',
+          'btn-primary',
+          'text-button',
+          'w-100',
+        ];
         $term = \Drupal::routeMatch()->getParameter('taxonomy_term');
-        $view = views_embed_view('taxonomy_term', 'block_1', $term->id());
-        if ($view) {
-          $build['search_area'] = array(
+        # Novità
+        $url = Url::fromUserInput('/novita');
+        $link = Link::fromTextAndUrl(t('Tutte le novità'), $url)->toRenderable();
+        $link['#attributes'] = [
+          'class' => $classes,
+          'title' => 'Vai a tutte le novità',
+        ];
+        $view_novita = views_embed_view('taxonomy_term', 'block_novita', $term->id());
+        if ($view_novita) {
+          $build['novita']['search_area'] = array(
             '#theme' => 'search_area',
             '#theme_wrappers' => ['search_area'],
-            '#view' => $view,
-            '#title' => 'Esplora per termine',
+            '#view' => $view_novita,
+            '#title' => 'Novità',
+            '#id' => 'novita',
+            '#classes' => ['neutral-2-bg'],
+            '#link' => $link,
+          );
+        }
+        # Amministrazione
+        $url = Url::fromUserInput('/amministrazione');
+        $link = Link::fromTextAndUrl(t('Tutta l\'amministrazione'), $url)->toRenderable();
+        $link['#attributes'] = [
+          'class' => $classes,
+          'title' => 'Vai a Amministrazione',
+        ];
+        $view_admin = views_embed_view('taxonomy_term', 'block_amministrazione', $term->id());
+        if ($view_admin) {
+          $build['amministrazione']['search_area'] = array(
+            '#theme' => 'search_area',
+            '#theme_wrappers' => ['search_area'],
+            '#view' => $view_admin,
+            '#title' => 'Amministrazione',
+            '#id' => 'amministrazione',
             '#classes' => [],
+            '#link' => $link,
+          );
+        }
+        # Servizi
+        $url = Url::fromUserInput('/servizi');
+        $link = Link::fromTextAndUrl(t('Tutti i servizi'), $url)->toRenderable();
+        $link['#attributes'] = [
+          'class' => $classes,
+          'title' => 'Vai a tutti i servizi',
+        ];
+        $view_services = views_embed_view('taxonomy_term', 'block_servizi', $term->id());
+        if ($view_services) {
+          $build['servizi']['search_area'] = array(
+            '#theme' => 'search_area',
+            '#theme_wrappers' => ['search_area'],
+            '#view' => $view_services,
+            '#title' => 'Servizi',
+            '#id' => 'servizi',
+            '#classes' => [],
+            '#link' => $link,
+          );
+        }
+        # Docuemnti
+        $url = Url::fromUserInput('/amministrazione/documenti-e-dati');
+        $link = Link::fromTextAndUrl(t('Tutti i documenti'), $url)->toRenderable();
+        $link['#attributes'] = [
+          'class' => $classes,
+          'title' => 'Vai a tutti i documenti',
+        ];
+        $view_documents = views_embed_view('taxonomy_term', 'block_documenti', $term->id());
+        if ($view_documents) {
+          $build['documenti']['search_area'] = array(
+            '#theme' => 'search_area',
+            '#theme_wrappers' => ['search_area'],
+            '#view' => $view_documents,
+            '#title' => 'Documenti',
+            '#id' => 'documenti',
+            '#classes' => [],
+            '#link' => $link,
           );
         }
         break;

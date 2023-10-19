@@ -1,13 +1,21 @@
+{% apply spaceless %}
+{% set attributes = create_attribute() %}
 {% set classes = [
-  'py-5',
+  'pb-5',
 ] %}
 {% set classes = classes|merge(element['#classes']) %}
-
-<div{{ attributes.addClass(classes).removeClass('lightgrey-bg-a1').addClass('neutral-2-bg') }}>
-  <div class="container">
-    <div class="row">
-      <h2 class="visually-hidden">{{ element['#title'] }}</h2>
-      {{ element['#view'] }}
+<section id="{{ element['#id'] }}">
+  <div{{attributes.addClass(classes)}}>
+    <div class="container">
+      <div class="row">
+        <h2 class="text-dark border-bottom pb-2 pb-lg-3 my-lg-4">{{ element['#title'] }}</h2>
+        {{ element['#view'] }}
+      </div>
+      <div
+        class="col-12 col-lg-3 offset-lg-9">
+        {{ element['#link'] }}
+      </div>
     </div>
   </div>
-</div>
+</section>
+{% endapply %}
