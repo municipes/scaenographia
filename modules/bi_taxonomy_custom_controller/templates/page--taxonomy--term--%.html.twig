@@ -94,7 +94,7 @@
       </div>
     {% endblock %}
     {% block contentLocalTasks %}
-      {% if page.local_tasks %}
+      {% if page.local_tasks|render|preg_replace('/\n/', '')|trim|striptags is not empty  %}
         <div class="mt-5 it-local-tasks_wrapper d-print-none {{ content_container_type ?: 'container' }}">
           {{ page.local_tasks }}
         </div>

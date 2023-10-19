@@ -81,7 +81,7 @@ class TermPageBuildSubscriber implements EventSubscriberInterface {
             '#view' => $view_novita,
             '#title' => 'Novità',
             '#id' => 'novita',
-            '#classes' => ['neutral-2-bg'],
+            '#classes' => ['neutral-2-bg', 'pt-lg-6'],
             '#link' => $link,
           );
         }
