@@ -4,4 +4,5 @@ description: Cambia il controller delle pagine di tassonomia.
 core_version_requirement: ^9 || ^10
 dependencies:
   - taxonomy_custom_controller:taxonomy_custom_controller
+  - search_api:search_api
 
