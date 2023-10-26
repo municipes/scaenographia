@@ -58,6 +58,19 @@ class TermPageBuildSubscriber implements EventSubscriberInterface {
         }
         break;
 
+      case 'tipi_di_documento':
+        $view = views_embed_view('bi_documenti_indice', 'block_1');
+        if ($view) {
+          $build['search_area'] = array(
+            '#theme' => 'search_area',
+            '#theme_wrappers' => ['search_area'],
+            '#view' => $view,
+            '#title' => 'Esplora tutti i documenti',
+            '#classes' => [],
+          );
+        }
+        break;
+
       default:
         $classes = [
           'btn',
