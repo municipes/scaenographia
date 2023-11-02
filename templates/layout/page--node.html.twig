@@ -48,7 +48,7 @@
 {% set id_page = (node) ? 'page-node-' ~ node.bundle() : 'page-no-node' %}
 <div id="{{ id_page }}">
   {% include '@bootstrap_italia/layout/header/_partial.header.html.twig' %}
-
+  {% include '@bootstrap_italia/layout/content/_partial.before-content.html.twig' %}
   {% embed '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
     {% block contentTitle %}{% endblock %}
     {% block contentMain %}
