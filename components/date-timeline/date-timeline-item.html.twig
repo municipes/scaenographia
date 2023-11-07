@@ -61,7 +61,11 @@
       <div class="point-list-aside point-list-primary">
         <div class="point-year font-monospace small">{{ _year }}</div>
         <div class="point-date font-monospace fs-2">{{ _day }} <div class="small fw-semibold">{{ _day_text }}</div></div>
-        <div class="point-month font-monospace fs-6 fw-semibold">{{ _month|slice(0, 3) }}</div>
+        {% if _day_text %}
+          <div class="point-month font-monospace fs-6 fw-semibold px-0">{{ _day_text }}</div>
+        {% else %}
+          <div class="point-month font-monospace fs-5 fw-semibold px-2">{{ _month|slice(0, 3) }}</div>
+        {% endif %}
       </div>
       <div class="point-list-content">
         <div class="card card-teaser shadow rounded">
