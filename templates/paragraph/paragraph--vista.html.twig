@@ -51,7 +51,9 @@
 
     <div class="bg-grey-card py-5">
       <div class="container">
+      {% if content.field_title|render %}
         <h2 class="text-secondary mb-4">{{ content.field_title }}</h2>
+      {% endif %}
         {{ content.field_vista_da_visualizzare }}
       </div>
     </div>
