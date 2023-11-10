@@ -156,6 +156,7 @@
             outline: map[access_type]['outline'],
             button_attributes: button_attributes
               .setAttribute('data-element', 'service-description')
+              .setAttribute('tabindex', loop.index0)
               .addClass([map[access_type]['class']])
           } %}
           </div>
