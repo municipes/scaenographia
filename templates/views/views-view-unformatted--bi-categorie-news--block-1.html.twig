@@ -1,0 +1,76 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+  <div{{row.attributes.addClass(row_classes)}}>
+    {% embed '@bi-bcl/card/card.html.twig' with {
+    card_tag_container: 'div',
+    card_shadow: false,
+    card_border: true,
+    card_attributes: attributes
+  } %}
+
+      {% block cardTitle %}
+        {% if loop.first %}
+          {% set map = {
+          "tipi_di_notizia": "news-category-link",
+          "categorie_dei_servizi": "service-category-link",
+        } %}
+        {% endif %}
+
+        {% set term = row.content['#taxonomy_term'] %}
+        {% set url = path('entity.taxonomy_term.canonical', {'taxonomy_term':  term.id}) %}
+        {% set label = term.field_plurale.value ? term.field_plurale.value : term.label %}
+        {% set link_attributes = create_attribute() %}
+        {% if map[term.bundle] %}
+          {% set link_attributes = link_attributes.setAttribute('data-element', map[term.bundle]) %}
+        {% endif %}
+
+        {{ title_prefix }}
+        {# {% if name and not page %} #}
+        <h3{{title_attributes.addClass(['card-title','text-decoration-none'])}}>
+          <a{{link_attributes}} href="{{ url }}" rel="bookmark">{{ label }}</a>
+        </h3>
+        {# {% endif %} #}
+        {{ title_suffix }}
+      {% endblock %}
+
+      {% block cardText %}
+        {% set term = row.content['#taxonomy_term'] %}
+        <div{{content_attributes.addClass('card-text','font-sans-serif','fs-6')}}>
+          {{ term.getDescription() }}
+        </div>
+        {% if term.bundle() == 'argomenti' %}
+          {{ drupal_view('bi_argomenti_nodi', 'block_1', term.id())}}
+        {% endif %}
+
+      {% endblock %}
+
+    {% endembed %}
+    {# {{- row.content -}} #}
+  </div>
+{% endfor %}
