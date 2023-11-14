@@ -148,7 +148,7 @@
             {% set access_type = channel.field_tipo_di_accesso.entity.label()|clean_class %}
 
             {% include '@bi-bcl/button/button.html.twig' with {
-            label: channel.field_link.0.getTitle(),
+            label: channel.field_link.0.title,
             tag: 'a',
             url: channel.field_link.0.getUrl().toString(),
             variant: 'primary',
