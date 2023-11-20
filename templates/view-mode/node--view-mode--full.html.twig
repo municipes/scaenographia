@@ -132,15 +132,17 @@
   <div class="container">
     <div class="row border-top border-light row-column-border row-column-menu-left">
       <aside class="col-12 col-lg-4">
+      {% block menu_left %}
         <div data-bs-toggle="sticky" data-bs-stackable="true">
           {% include '@scaenographia_components/navscroll/page-index.html.twig' with {
             background_hover: false,
           } %}
         </div>
+      {% endblock %}
       </aside>
 
       <section class="col-12 col-lg-8 it-page-sections-container border-light" data-content>
-        <div{{content_attributes}}>
+        <div{{ content_attributes }}>
           {% block content %}
             {{ content|without(
               'field_descrizione_breve',
