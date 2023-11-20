@@ -75,8 +75,13 @@
   {% block arguments %}{% endblock %}
 
   {% block menu_left %}
-    <div data-bs-toggle="sticky" data-bs-stackable="true">
-      {{ drupal_menu('amministrazione-trasparente', expand=true) }}
+    <div class="sidebar-wrapper">
+      <h3>Amministrazione trasparente</h3>
+      <div class="sidebar-linklist-wrapper">
+        <div class="link-list-wrapper">
+          {{ drupal_menu('amministrazione-trasparente', expand=true) }}
+        </div>
+      </div>
     </div>
   {% endblock %}
 
