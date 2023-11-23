@@ -95,7 +95,7 @@
 
   {% block cardTitle %}
     <h3{{ title_attributes.addClass(['card-title', 'h4']) }}>
-      <a data-element="live-button-events" href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark"  class="text-decoration-none" data-element="news-category-link" data-focus-mouse="false">{{ label }}</a>
+      <a href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark"  class="text-decoration-none" data-focus-mouse="false">{{ label }}</a>
     </h3>
   {% endblock %}
 
