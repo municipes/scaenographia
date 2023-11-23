@@ -72,7 +72,7 @@
 
   {% block excerpt %}
     {% if content.field_sottotitolo|render|striptags %}
-      <h2 class="h4 py-2" data-audio="">{{ content.field_sottotitolo }}</h2>
+      <h2 class="h4 py-2">{{ content.field_sottotitolo }}</h2>
       {{ content.field_descrizione_breve }}
     {% endif %}
   {% endblock %}

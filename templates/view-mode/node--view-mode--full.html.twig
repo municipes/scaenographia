@@ -76,7 +76,7 @@
       <div class="col-lg-8 px-lg-4 py-lg-2">
         {% block title %}
           {{ title_prefix }}
-          <h1 data-audio {{ title_attributes }} data-element="page-name">
+          <h1 {{ title_attributes }} data-element="page-name">
             {{ label }}
           </h1>
           {{ title_suffix }}
@@ -85,7 +85,7 @@
         {% block excerpt %}
           {% if content.field_descrizione_breve|render|striptags %}
             <h2 class="visually-hidden">{{ 'Details'|t }}</h2>
-            <div data-audio>
+            <div>
               {{ content.field_descrizione_breve }}
             </div>
           {% endif %}
