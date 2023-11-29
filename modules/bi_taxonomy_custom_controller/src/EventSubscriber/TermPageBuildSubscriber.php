@@ -52,7 +52,7 @@ class TermPageBuildSubscriber implements EventSubscriberInterface {
             '#theme' => 'search_area',
             '#theme_wrappers' => ['search_area'],
             '#view' => $view,
-            '#title' => 'Esplora tutti i servizi',
+            '#title' => 'Esplora i servizi: ' . $taxonomy_term->label(),
             '#classes' => [],
           );
         }
