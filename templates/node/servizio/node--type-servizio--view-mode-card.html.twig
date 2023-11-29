@@ -75,8 +75,17 @@
   card_teaser: true,
   card_shadow: true,
   card_classes: ['h-100'],
-  card_attributes: attributes
+  card_attributes: attributes,
+  card_category: content.field_categoria_del_servizio
 } %}
+
+	{% block cardCategoryTop %}
+		{% if _card_category is not empty %}
+			<div class="category-top">
+				<span class="category">{{ _card_category }}</span>
+			</div>
+		{% endif %}
+	{% endblock %}
 
   {% block cardTitle %}
     <h3{{ title_attributes.addClass(['card-title', 'h3']) }}>
