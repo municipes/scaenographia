@@ -65,7 +65,20 @@ class TermPageBuildSubscriber implements EventSubscriberInterface {
             '#theme' => 'search_area',
             '#theme_wrappers' => ['search_area'],
             '#view' => $view,
-            '#title' => 'Esplora tutti i documenti',
+            '#title' => 'Esplora i documenti: ' . $taxonomy_term->label(),
+            '#classes' => [],
+          );
+        }
+        break;
+
+      case 'tipi_di_notizia':
+        $view = views_embed_view('bi_tutte_le_novita', 'tutte_le_novita');
+        if ($view) {
+          $build['search_area'] = array(
+            '#theme' => 'search_area',
+            '#theme_wrappers' => ['search_area'],
+            '#view' => $view,
+            '#title' => 'Esplora le novità: ' . $taxonomy_term->field_plurale->value,
             '#classes' => [],
           );
         }
