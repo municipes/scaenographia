@@ -34,3 +34,12 @@ function bi_taxonomy_custom_controller_preprocess_page(&$variables) {
     $variables['term_description'] = $term->description->value;
   }
 }
+
+/**
+ * Implements hook_preprocess_page_title().
+ */
+function bi_taxonomy_custom_controller_preprocess_page_title(&$variables) {
+  if ($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
+    $variables['title']['#markup'] = $term->field_plurale->value;
+  }
+}
