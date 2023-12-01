@@ -124,5 +124,5 @@ components:
     scaenographia_components:
       - components
 
-version: '2.6.0'
+version: '2.7.1'
 project: 'Scaenographia'
