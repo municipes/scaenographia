@@ -166,17 +166,20 @@
   {% endblock %}
 
 {% endembed %}
+{% set catService = node.field_categoria_del_servizio.value[0]['target_id'] %}
+{% set catField = '' %}
+{% set catField = catService is not null ? drupal_field('name', 'taxonomy_term', node.field_categoria_del_servizio.value[0]['target_id'])[0]['#context']['value'] %}
 {% set address = content.field_unita_organizzative['#items'][0].entity.field_luogo.entity.field_indirizzo.getValue() %}
-{% set name = node.field_codice_dell_ente_erogatore.value|trim %}
+{% set name = node.field_codice_dell_ente_erogatore.value %}
 {% set name = name is not empty ? name : 'nessuno' %}
-{% set areaServed = node.field_copertura_geografica.value|raw|striptags|trim %}
+{% set areaServed = node.field_copertura_geografica.value|render|striptags|trim %}
 {% set areaServed = areaServed is not empty ? areaServed : 'nessuno' %}
-{% set audience = node.field_a_chi_e_rivolto.value|raw|striptags|trim %}
+{% set audience = node.field_a_chi_e_rivolto.value|render|striptags|trim %}
 {% set audience = audience is not empty ? audience : 'nessuno' %}
 <script data-element="metatag" type="application/ld+json">
   {
       "name": "{{ node.label }}",
-      "serviceType": "{{ drupal_field('name', 'taxonomy_term', node.field_categoria_del_servizio.value[0]['target_id'])[0]['#context']['value'] }}",
+      "serviceType": "{{ catField }}",
       "serviceOperator": {
         "name": "{{ name }}"
       },
