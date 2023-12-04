@@ -184,9 +184,7 @@
 {% set serviceUrl = [] %}
 {% for serviceLink in serviceLinks %}
   {% if serviceLink.entity.published %}
-    {% if loop.index0 == 0 %}
-      {% set serviceUrl = serviceLink.entity.field_link.getValue() is not null ? serviceLink.entity.field_link.getValue().0.uri : 'nessuno' %}
-    {% endif %}
+    {% set serviceUrl = serviceLink.entity.field_link.getValue() is not null ? serviceLink.entity.field_link.getValue().0.uri : 'nessuno' %}
   {% endif %}
 {% endfor %}
 
