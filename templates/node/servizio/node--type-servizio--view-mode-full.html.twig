@@ -70,8 +70,8 @@
 #}
 {% embed "@scaenographia/view-mode/node--view-mode--full.html.twig" %}
 
-  {% block content %}
-    {{ content|without(
+	{% block content %}
+		{{ content|without(
       'field_descrizione_breve',
       'node_read_time',
       'field_immagine',
@@ -80,54 +80,54 @@
       'field_motivo_dello_stato',
       'comment'
     ) }}
-  {% endblock %}
+	{% endblock %}
 
-  {% block title %}
-    {{ title_prefix }}
-    <h1 data-element="service-title" {{ title_attributes }}>
-      {{ label }}
-    </h1>
-    {{ title_suffix }}
-    {% if content.field_sottotitolo|render|striptags %}
-      <h2 class="h3">{{ content.field_sottotitolo }}</h2>
-    {% endif %}
-    <div class="d-flex flex-wrap gap-1 my-3">
-      {% set chip_attributes = create_attribute() %}
+	{% block title %}
+		{{ title_prefix }}
+		<h1 data-element="service-title" {{ title_attributes }}>
+			{{ label }}
+		</h1>
+		{{ title_suffix }}
+		{% if content.field_sottotitolo|render|striptags %}
+			<h2 class="h3">{{ content.field_sottotitolo }}</h2>
+		{% endif %}
+		<div class="d-flex flex-wrap gap-1 my-3">
+			{% set chip_attributes = create_attribute() %}
 
-      {% include '@bi-bcl/chip/chip.html.twig' with {
+			{% include '@bi-bcl/chip/chip.html.twig' with {
           chip_label: content.field_stato_del_servizio|render|striptags,
           chip_color: 'primary',
           chip_attributes: chip_attributes.setAttribute('data-element', 'service-status')
       } %}
-    </div>
+		</div>
 
-    {% if not node.field_stato_del_servizio.value %}
-      <div class="callout danger">
-        <div class="callout-inner">
-          <div class="callout-title">
-            {% include '@bi-bcl/icon/icon.html.twig' with {
+		{% if not node.field_stato_del_servizio.value %}
+			<div class="callout danger">
+				<div class="callout-inner">
+					<div class="callout-title">
+						{% include '@bi-bcl/icon/icon.html.twig' with {
               name: 'it-close-circle',
             } %}
-            <span class="visually-hidden">{{ content.field_stato_del_servizio|render|striptags }}</span>
-            <span class="text">{{ content.field_stato_del_servizio|render|striptags }}</span>
-          </div>
-          {{ content.field_motivo_dello_stato }}
-        </div>
-      </div>
-    {% endif %}
-  {% endblock %}
+						<span class="visually-hidden">{{ content.field_stato_del_servizio|render|striptags }}</span>
+						<span class="text">{{ content.field_stato_del_servizio|render|striptags }}</span>
+					</div>
+					{{ content.field_motivo_dello_stato }}
+				</div>
+			</div>
+		{% endif %}
+	{% endblock %}
 
-  {% block excerpt %}
-    {% if content.field_descrizione_breve|render|striptags %}
-      <h2 class="visually-hidden">{{ 'Details'|t }}</h2>
-      <div data-element="service-description">
-        {{ content.field_descrizione_breve }}
-      </div>
-    {% endif %}
-  {% endblock %}
+	{% block excerpt %}
+		{% if content.field_descrizione_breve|render|striptags %}
+			<h2 class="visually-hidden">{{ 'Details'|t }}</h2>
+			<div data-element="service-description">
+				{{ content.field_descrizione_breve }}
+			</div>
+		{% endif %}
+	{% endblock %}
 
-  {% block meta %}
-    {% set map = {
+	{% block meta %}
+		{% set map = {
       'on-line': {
         'data-element': 'service-online-access',
         'outline': false,
@@ -139,15 +139,15 @@
         'class': 'text-primary'
       }
     } %}
-    <div class="row mt-5 mb-4">
-      {% set button_attributes = create_attribute() %}
-      {% for item in node.field_accedi_al_servizio %}
-        {% if item.entity.bundle() == 'accesso_al_servizio' %}
-          <div class="col-6">
-            {% set channel = item.entity %}
-            {% set access_type = channel.field_tipo_di_accesso.entity.label()|clean_class %}
+		<div class="row mt-5 mb-4">
+			{% set button_attributes = create_attribute() %}
+			{% for item in node.field_accedi_al_servizio %}
+				{% if item.entity.bundle() == 'accesso_al_servizio' %}
+					<div class="col-6">
+						{% set channel = item.entity %}
+						{% set access_type = channel.field_tipo_di_accesso.entity.label()|clean_class %}
 
-            {% include '@bi-bcl/button/button.html.twig' with {
+						{% include '@bi-bcl/button/button.html.twig' with {
             label: channel.field_link.0.title,
             tag: 'a',
             url: channel.field_link.0.getUrl().toString(),
@@ -159,11 +159,11 @@
               .setAttribute('tabindex', loop.index0)
               .addClass([map[access_type]['class']])
           } %}
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  {% endblock %}
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	{% endblock %}
 
 {% endembed %}
 {% set catService = node.field_categoria_del_servizio.value[0]['target_id'] %}
@@ -183,39 +183,53 @@
 {% set serviceLinks = content.field_accedi_al_servizio['#items'] %}
 {% set serviceUrl = [] %}
 {% for serviceLink in serviceLinks %}
-  {% if serviceLink.entity.published %}
-    {% set serviceUrl = serviceLink.entity.field_link.getValue() is not null ? serviceLink.entity.field_link.getValue().0.uri : 'nessuno' %}
-  {% endif %}
+	{% if serviceLink.entity.published %}
+		{% set serviceUrl = serviceLink.entity.field_link.getValue() is not null ? serviceLink.entity.field_link.getValue().0.uri : 'nessuno' %}
+	{% endif %}
 {% endfor %}
-
 {% if content.field_unita_organizzative['#items'][0].entity.title.value %}
-  {% set serviceLocationName = content.field_unita_organizzative['#items'][0].entity.title.value %}
-  {% set streetAddress = address.0.address_line1 %}
-  {% set postalCode = address.0.postal_code %}
-  {% set addressLocality = address.0.locality %}
+	{% set serviceLocationName = content.field_unita_organizzative['#items'][0].entity.title.value %}
+	{% set streetAddress = address.0.address_line1 %}
+	{% set postalCode = address.0.postal_code %}
+	{% set addressLocality = address.0.locality %}
 {% endif %}
 <script data-element="metatag" type="application/ld+json">
   {
-      "name": "{{ node.label }}",
-      "serviceType": "{{ catField }}",
+      "@context": "https://schema.org",
+      "@type": "GovernmentService",
+      "name": {{ node.label|json_encode|raw }},
+      "serviceType": {{ catField|json_encode|raw }},
       "serviceOperator": {
-        "name": "{{ name }}"
+        "@type": "GovernmentOrganization",
+        "name": {{ name|json_encode|raw }}
       },
       "areaServed": {
-        "name": "{{ areaServed }}"
+        "@type": "AdministrativeArea",
+        "name": {{ areaServed|json_encode|raw }}
       },
       "audience": {
-        "audienceType": "{{ audience }}"
+        "@type": "Audience",
+        "audienceType": {{ audience|json_encode|raw }}
       },
       "availableChannel": {
-        "serviceUrl": "{{ serviceUrl }}",
+        "@type": "ServiceChannel",
+        "name": "Dove rivolgersi",
+        "serviceUrl": {{ serviceUrl|json_encode|raw }},
+        "availableLanguage": {
+          "@type": "Language",
+          "name": "Italian",
+          "alternateName": "it"
+          },
         "serviceLocation": {
-          "name": "{{ serviceLocationName }}",
+          "@type": "Place",
+          "name": {{ content.field_unita_organizzative['#items'][0].entity.title.value is not empty ? content.field_unita_organizzative['#items'][0].entity.title.value|json_encode|raw : "\"nessuno\""|raw }},
           "address": {
-            "streetAddress": "{{ streetAddress }}",
-            "postalCode": "{{ postalCode }}",
-            "addressLocality": "{{ addressLocality }}"
+            "@type": "PostalAddress",
+            "streetAddress": {{ address.0.address_line1 is not empty ? address.0.address_line1|json_encode|raw : "\"nessuno\""|raw }},
+            "postalCode": {{ address.0.postal_code is not empty ? address.0.postal_code|json_encode|raw : "\"nessuno\""|raw }},
+            "addressLocality": {{ address.0.locality is not empty ? address.0.locality|json_encode|raw : "\"nessuno\""|raw }}
           }
         }
       }
-    }</script>
+    }
+</script>
