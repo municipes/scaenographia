@@ -180,8 +180,16 @@
 {% set streetAddress = 'nessuno' %}
 {% set postalCode = 'nessuno' %}
 {% set addressLocality = 'nessuno' %}
-{% set serviceUrl = content.field_accedi_al_servizio['#items'] %}
-{% set serviceUrl = serviceUrl is not null ? content.field_accedi_al_servizio['#items'][0].entity.field_link.getValue().0.uri : 'nessuno' %}
+{% set serviceLinks = content.field_accedi_al_servizio['#items'] %}
+{% set serviceUrl = [] %}
+{% for serviceLink in serviceLinks %}
+  {% if serviceLink.entity.published %}
+    {% if loop.index0 == 0 %}
+      {% set serviceUrl = serviceLink.entity.field_link.getValue() is not null ? serviceLink.entity.field_link.getValue().0.uri : 'nessuno' %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
 {% if content.field_unita_organizzative['#items'][0].entity.title.value %}
   {% set serviceLocationName = content.field_unita_organizzative['#items'][0].entity.title.value %}
   {% set streetAddress = address.0.address_line1 %}
