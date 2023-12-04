@@ -167,18 +167,18 @@
 
 {% endembed %}
 {% set address = content.field_unita_organizzative['#items'][0].entity.field_luogo.entity.field_indirizzo.getValue() %}
-{% if node.field_copertura_geografica.value %}
-  {% set areaServed = node.field_copertura_geografica.value|raw|striptags|trim %}
-{% endif %}
-{% if node.field_a_chi_e_rivolto.value %}
-  {% set audience = node.field_a_chi_e_rivolto.value|raw|striptags|trim %}
-{% endif %}
+{% set name = node.field_codice_dell_ente_erogatore.value|trim %}
+{% set name = name is not empty ? name : 'nessuno' %}
+{% set areaServed = node.field_copertura_geografica.value|raw|striptags|trim %}
+{% set areaServed = areaServed is not empty ? areaServed : 'nessuno' %}
+{% set audience = node.field_a_chi_e_rivolto.value|raw|striptags|trim %}
+{% set audience = audience is not empty ? audience : 'nessuno' %}
 <script data-element="metatag" type="application/ld+json">
   {
       "name": "{{ node.label }}",
       "serviceType": "{{ drupal_field('name', 'taxonomy_term', node.field_categoria_del_servizio.value[0]['target_id'])[0]['#context']['value'] }}",
       "serviceOperator": {
-        "name": "{{ node.field_codice_dell_ente_erogatore.value }}"
+        "name": "{{ name }}"
       },
       "areaServed": {
         "name": "{{ areaServed }}"
