@@ -169,13 +169,25 @@
 {% set catService = node.field_categoria_del_servizio.value[0]['target_id'] %}
 {% set catField = '' %}
 {% set catField = catService is not null ? drupal_field('name', 'taxonomy_term', node.field_categoria_del_servizio.value[0]['target_id'])[0]['#context']['value'] %}
-{% set address = content.field_unita_organizzative['#items'][0].entity.field_luogo.entity.field_indirizzo.getValue() %}
 {% set name = node.field_codice_dell_ente_erogatore.value %}
 {% set name = name is not empty ? name : 'nessuno' %}
 {% set areaServed = node.field_copertura_geografica.value|render|striptags|trim %}
 {% set areaServed = areaServed is not empty ? areaServed : 'nessuno' %}
 {% set audience = node.field_a_chi_e_rivolto.value|render|striptags|trim %}
 {% set audience = audience is not empty ? audience : 'nessuno' %}
+{% set address = content.field_unita_organizzative['#items'][0].entity.field_luogo.entity.field_indirizzo.getValue() %}
+{% set serviceLocationName = 'nessuno' %}
+{% set streetAddress = 'nessuno' %}
+{% set postalCode = 'nessuno' %}
+{% set addressLocality = 'nessuno' %}
+{% set serviceUrl = content.field_accedi_al_servizio['#items'] %}
+{% set serviceUrl = serviceUrl is not null ? content.field_accedi_al_servizio['#items'][0].entity.field_link.getValue().0.uri : 'nessuno' %}
+{% if content.field_unita_organizzative['#items'][0].entity.title.value %}
+  {% set serviceLocationName = content.field_unita_organizzative['#items'][0].entity.title.value %}
+  {% set streetAddress = address.0.address_line1 %}
+  {% set postalCode = address.0.postal_code %}
+  {% set addressLocality = address.0.locality %}
+{% endif %}
 <script data-element="metatag" type="application/ld+json">
   {
       "name": "{{ node.label }}",
@@ -190,13 +202,13 @@
         "audienceType": "{{ audience }}"
       },
       "availableChannel": {
-        "serviceUrl": "{{ url }}",
+        "serviceUrl": "{{ serviceUrl }}",
         "serviceLocation": {
-          "name": "{{ content.field_unita_organizzative['#items'][0].entity.title.value }}",
+          "name": "{{ serviceLocationName }}",
           "address": {
-            "streetAddress": "{{ address.0.address_line1 }}",
-            "postalCode": "{{ address.0.postal_code }}",
-            "addressLocality": "{{ address.0.locality }}"
+            "streetAddress": "{{ streetAddress }}",
+            "postalCode": "{{ postalCode }}",
+            "addressLocality": "{{ addressLocality }}"
           }
         }
       }
