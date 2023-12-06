@@ -187,6 +187,9 @@
 		{% set serviceUrl = serviceLink.entity.field_link.getValue() is not null ? serviceLink.entity.field_link.getValue().0.uri : 'nessuno' %}
 	{% endif %}
 {% endfor %}
+{% if serviceUrl|length == 0 %}
+  {% set serviceUrl = 'nessuno' %}
+{% endif %}
 {% if content.field_unita_organizzative['#items'][0].entity.title.value %}
 	{% set serviceLocationName = content.field_unita_organizzative['#items'][0].entity.title.value %}
 	{% set streetAddress = address.0.address_line1 %}
