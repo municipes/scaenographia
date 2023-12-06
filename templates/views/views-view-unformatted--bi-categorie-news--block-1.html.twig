@@ -62,7 +62,7 @@
       {% block cardText %}
         {% set term = row.content['#taxonomy_term'] %}
         <div{{content_attributes.addClass('card-text','font-sans-serif','fs-6')}}>
-          {{ term.getDescription() }}
+          {{ term.getDescription()|striptags }}
         </div>
         {% if term.bundle() == 'argomenti' %}
           {{ drupal_view('bi_argomenti_nodi', 'block_1', term.id())}}
