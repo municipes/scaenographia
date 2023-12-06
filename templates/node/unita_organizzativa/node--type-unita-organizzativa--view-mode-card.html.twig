@@ -71,7 +71,7 @@
 #}
 {% embed '@bi-bcl/card/card.html.twig' with {
   card_title: label,
-  card_text: content.field_descrizione_breve|render|striptags,
+  card_text: content.field_descrizione_breve,
   card_teaser: true,
   card_shadow: true,
   card_classes: ['h-100'],
