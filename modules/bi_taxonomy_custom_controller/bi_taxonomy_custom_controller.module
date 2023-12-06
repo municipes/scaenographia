@@ -39,7 +39,10 @@ function bi_taxonomy_custom_controller_preprocess_page(&$variables) {
  * Implements hook_preprocess_page_title().
  */
 function bi_taxonomy_custom_controller_preprocess_page_title(&$variables) {
-  if ($term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
-    $variables['title']['#markup'] = $term->field_plurale->value;
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+    $term= \Drupal::routeMatch()->getParameter('taxonomy_term');
+    if ($term->bundle() == "tipi_di_notizia") {
+      $variables['title']['#markup'] = $term->field_plurale->value;
+    }
   }
 }
