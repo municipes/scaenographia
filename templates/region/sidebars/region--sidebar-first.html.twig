@@ -24,7 +24,7 @@
     <div{{ attributes.addClass(classes).setAttribute('id', id_region) }}>
       {% set site_url = url("<current>") %}
       {% if 'ricerca-globale' in site_url|render|render %}
-        <h2 class="visually-hidden">{{ 'Filters to apply'|t }}</h2
+        <h2 class="visually-hidden">{{ 'Filters to apply'|t }}</h2>
       {% endif %}
       {{ content }}
     </div>
