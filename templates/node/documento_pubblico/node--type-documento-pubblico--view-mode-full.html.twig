@@ -73,10 +73,12 @@
   {% block meta %}
     <div class="row mt-5 mb-4">
       <div class="col-6">
+      {% if not node.field_data_inizio.isEmpty() %}
         <small>{{ 'Date'|t }}:</small>
         <p class="fw-semibold font-monospace">{{ content.field_data_inizio|render|striptags }}</p>
+      {% endif %}
       </div>
-      {% if content.field_data_fine|render|striptags %}
+      {% if not node.field_data_fine.isEmpty() %}
         <div class="col-6">
           <small>{{ 'End date'|t }}:</small>
           <p class="fw-semibold">{{ content.field_data_fine|render|striptags }}</p>
