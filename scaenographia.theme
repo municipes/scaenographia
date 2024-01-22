@@ -97,7 +97,7 @@ function scaenographia_theme_suggestions_views_view_alter(array &$suggestions, a
  */
 function scaenographia_preprocess_breadcrumb(array &$variables): void {
   // Plural form.
-  if (isset($variables['breadcrumb'][2]) && isset($variables['breadcrumb'][2]['text']['#markup'])) {
+  if (isset($variables['breadcrumb'][2]) && is_array($variables['breadcrumb'][2]['text']) && isset($variables['breadcrumb'][2]['text']['#markup'])) {
     switch ($variables['breadcrumb'][2]['text']['#markup']) {
       case 'Avviso':
         $variables['breadcrumb'][2]['text']['#markup'] = 'Avvisi';
