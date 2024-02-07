@@ -109,8 +109,8 @@
     {% set value = value_array.value %}
 
     {% if type|lower == 'url' %}
-      {% set label = link(label, value, { 'class':['h6']}) %}
-      {% set value = false %}
+      {% set value = link(label, value, { 'class':['h6']}) %}
+      {# {% set value = false %} #}
     {% endif %}
 
     {% if type|lower == 'telefono' %}
