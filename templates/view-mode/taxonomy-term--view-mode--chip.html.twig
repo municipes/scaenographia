@@ -33,6 +33,7 @@
     chip_color: 'primary',
   } %}
   {% endset %}
-  {{ link(_chip, 'entity:taxonomy_term/' ~ term.id, attributes) }}
+  {# {{ link(_chip, 'entity:taxonomy_term/' ~ term.id, attributes) }} #}
+  {{ _chip }}
 
 {% endapply %}
