@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a link to a file.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ * - file_size: The size of the file.
+ *
+ * @see template_preprocess_file_link()
+ *
+ * @ingroup themeable
+ */
+#}
+{% embed '@bootstrap_italia/base/file-link.html.twig' %}
+	{% block fileLink %}
+    {% embed '@bi-bcl/card/card.html.twig' with {
+      card_shadow: true,
+      card_icon: _icon_name|join|trim,
+      card_teaser: true,
+      card_rounded: true,
+      card_border: true,
+      card_attributes: attributes,
+    } %}
+      {% block cardTitle %}
+        {% set page_url = url("<current>") %}<pre>
+          {{ dump('/servizi/' in page_url['#markup']|render|render) }}
+        </pre>
+        <h5 class="card-title">
+          {% include '@bi-bcl/icon/icon.html.twig' with {name: _icon_name|join|trim} %}
+          {% if '/servizi/' in page_url['#markup']|render|render %}
+            {{ drupal_link(link['#title'], link['#url']|render, {attributes: {'data-element': 'service-file', 'data-focus-mouse': 'false'}}) }}
+          {% else %}
+            {{ link }}
+          {% endif %}
+          {% if file_size and file_link_show_size %}
+            <span> ({{ file_size }})</span>
+          {% endif %}
+        </h5>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}
