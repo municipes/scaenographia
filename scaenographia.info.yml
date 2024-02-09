@@ -10,9 +10,9 @@ base theme: bootstrap_italia
 
 # Choose libraries to use. Global is managed with theme settings UI.
 libraries:
-#  - scaenographia/libraries-ui
+  - scaenographia/libraries-ui
 #  - scaenographia/vanilla
-  - scaenographia/custom
+#  - scaenographia/custom
 #  - scaenographia/cdn
 #  - scaenographia/hot
 #  - scaenographia/ddev
