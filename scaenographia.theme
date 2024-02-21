@@ -120,4 +120,21 @@ function scaenographia_preprocess_breadcrumb(array &$variables): void {
         break;
     }
   }
+  if (isset($variables['breadcrumb'][2]['text'])) {
+    switch ($variables['breadcrumb'][2]['text']) {
+      case 'Tutti gli eventi':
+      case 'Tutti Gli Eventi':
+        $variables['breadcrumb'][2]['text'] = 'Eventi';
+        break;
+
+      case 'Tutti i luoghi':
+      case 'Tutti I Luoghi':
+        $variables['breadcrumb'][2]['text'] = 'Luoghi';
+        break;
+
+      default:
+        # code...
+        break;
+    }
+  }
 }
