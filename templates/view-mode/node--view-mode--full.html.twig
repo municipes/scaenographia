@@ -73,7 +73,7 @@
 <article{{ attributes }}>
   <div class="container px-4 mb-4">
     <div class="row">
-      <div class="col-lg-8 px-lg-4 py-lg-2">
+      <div class="col-lg-7 px-lg-5 py-lg-2">
         {% block title %}
           {{ title_prefix }}
           <h1 {{ title_attributes }} data-element="page-name">
@@ -94,7 +94,7 @@
         {% block meta %}{% endblock %}
       </div>
 
-      <div class="col-lg-3 offset-lg-1">
+      <div class="col-lg-4 offset-lg-1">
         {% block share %}
           {% include '@bi-bcl/share/share-this.twig' with {
             subject: label[0]['#context'].value,
