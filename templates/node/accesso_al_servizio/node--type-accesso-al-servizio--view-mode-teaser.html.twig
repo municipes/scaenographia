@@ -78,7 +78,11 @@
   'per-appuntamento': {
     'data-element': 'service-booking-access',
     'outline': true
-  }
+  },
+  'generico': {
+    'data-element': 'service-generic-access',
+    'outline': false
+  },
 } %}
 {% set access_type = node.field_tipo_di_accesso.entity.label()|clean_class %}
 {% set button_attributes = create_attribute() %}
@@ -88,19 +92,21 @@
     <p>{{ content.field_descrizione_breve }}</p>
   </div>
   <div class="mb-4">
-    {% include '@bi-bcl/button/button.html.twig' with {
+  {% set onclick = 'location.href=\'' ~ node.field_link.0.getUrl().toString() ~ '\'' %}
+    {#
+    {% if map[access_type]['outline'] and access_type == 'per-appuntamento' %}
+       {% set onclick = 'location.href=\'' ~ node.field_link.0.getUrl().toString() ~ '?id_servizio=' ~ content.target_id ~ '\'' %}
+    {% endif %}
+    #}
+     {% include '@bi-bcl/button/button.html.twig' with {
       label: node.field_link.0.getTitle(),
       variant: 'primary',
       tag: 'button',
       outline: map[access_type]['outline'],
       button_attributes: button_attributes
-        .setAttribute('onclick', 'location.href=\'' ~ node.field_link.0.getUrl().toString() ~ '\';')
+        .setAttribute('onclick', onclick)
         .setAttribute('data-element', map[access_type]['data-element']),
    } %}
-    {# <button type="button" onclick="location.href='{{ node.field_link.0.getUrl().toString() }}';"
-           data-element="{{ map[access_type] }}">
-       <span class="">{{ node.field_link.0.getTitle() }}</span>
-   </button> #}
   </div>
 </div>
 {% endapply %}
