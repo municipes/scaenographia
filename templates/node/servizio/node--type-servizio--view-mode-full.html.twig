@@ -154,17 +154,22 @@
           <div class="col-6">
             {% set channel = item.entity %}
             {% set access_type = channel.field_tipo_di_accesso.entity.label()|clean_class %}
-
-            {% set onclick = 'location.href=\'' ~ channel.field_link.0.getUrl().toString() ~ '\'' %}
+            {% if content.field_stato_del_servizio|render|striptags|trim == 'Servizio attivo' %}
+              {% set onclick = 'location.href=\'' ~ channel.field_link.0.getUrl().toString() ~ '\'' %}
+              {% set button_variant = 'primary' %}
+            {% else %}
+              {% set onclick = 'location.href=/#' %}
+              {% set button_variant = 'primary disabled' %}
+            {% endif %}
             {#
-                        {% if map[access_type]['outline'] and access_type == 'per-appuntamento' %}
-                            {% set onclick = 'location.href=\'' ~ channel.field_link.0.getUrl().toString() ~ '?id_servizio=' ~ node.nid.value ~ '\'' %}
-                        {% endif %}
-                        #}
+            {% if map[access_type]['outline'] and access_type == 'per-appuntamento' %}
+                {% set onclick = 'location.href=\'' ~ channel.field_link.0.getUrl().toString() ~ '?id_servizio=' ~ node.nid.value ~ '\'' %}
+            {% endif %}
+            #}
             {% include '@bi-bcl/button/button.html.twig' with {
             label: channel.field_link.0.title,
             url: channel.field_link.0.getUrl().toString(),
-            variant: 'primary',
+            variant: button_variant,
             tag: 'button',
             outline: map[access_type]['outline'],
             button_classes: ['fw-bold', 'px-5'],
@@ -209,7 +214,7 @@
   {% set postalCode = address.0.postal_code %}
   {% set addressLocality = address.0.locality %}
 {% endif %}
- <script data-element="metatag" type="application/ld+json">
+<script data-element="metatag" type="application/ld+json">
   {
       "@context": "https://schema.org",
       "@type": "GovernmentService",

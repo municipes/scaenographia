@@ -92,21 +92,27 @@
     <p>{{ content.field_descrizione_breve }}</p>
   </div>
   <div class="mb-4">
-  {% set onclick = 'location.href=\'' ~ node.field_link.0.getUrl().toString() ~ '\'' %}
+    {% if access_node.field_stato_del_servizio.value != 0 %}
+      {% set onclick = 'location.href=\'' ~ channel.field_link.0.getUrl().toString() ~ '\'' %}
+      {% set button_variant = 'primary' %}
+    {% else %}
+      {% set onclick = 'location.href=/#' %}
+      {% set button_variant = 'primary disabled' %}
+    {% endif %}
     {#
     {% if map[access_type]['outline'] and access_type == 'per-appuntamento' %}
        {% set onclick = 'location.href=\'' ~ node.field_link.0.getUrl().toString() ~ '?id_servizio=' ~ content.target_id ~ '\'' %}
     {% endif %}
     #}
-     {% include '@bi-bcl/button/button.html.twig' with {
+    {% include '@bi-bcl/button/button.html.twig' with {
       label: node.field_link.0.getTitle(),
-      variant: 'primary',
+      variant: button_variant,
       tag: 'button',
       outline: map[access_type]['outline'],
       button_attributes: button_attributes
         .setAttribute('onclick', onclick)
         .setAttribute('data-element', map[access_type]['data-element']),
-   } %}
+    } %}
   </div>
 </div>
 {% endapply %}
