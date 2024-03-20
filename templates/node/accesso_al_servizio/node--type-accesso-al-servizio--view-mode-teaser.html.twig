@@ -93,7 +93,7 @@
   </div>
   <div class="mb-4">
     {% if access_node.field_stato_del_servizio.value != 0 %}
-      {% set onclick = 'location.href=\'' ~ channel.field_link.0.getUrl().toString() ~ '\'' %}
+      {% set onclick = 'location.href=\'' ~ node.field_link.0.getUrl().toString() ~ '\'' %}
       {% set button_variant = 'primary' %}
     {% else %}
       {% set onclick = 'location.href=/#' %}
