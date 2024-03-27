@@ -80,7 +80,7 @@
   {% else %}
     <div{{ attributes.addClass(container_with_label_classes) }}>
       <div{{ title_attributes.addClass(title_classes) }}>
-        <h3 class="h4">{{ label }}</h3>
+        <h2 id="it-menu-{{ random() }}" class="h2 it-page-section">{{ label }}</h2>
         {%- if field_label_separator is not empty -%}
           {{ field_label_separator }}&nbsp;
         {%- endif -%}
