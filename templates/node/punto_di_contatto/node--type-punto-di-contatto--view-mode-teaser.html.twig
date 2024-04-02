@@ -93,6 +93,7 @@
 {% set type = node.field_contatto.entity.field_tipo_punto_di_contatto.entity.label|lower %}
 {% set label = node.label %}
 {% set values = node.field_contatto.entity.field_valore_punto_di_contatto.getValue() %}
+{% set persona = node.field_contatto.entity.field_persona.entity %}
 
 <div class="col-lg-6 p-1 mb-2 card-teaser-info">
   {% if map[type] %}
@@ -126,6 +127,20 @@
     {% if value %}<div class="value fs-6">{{ value }}</div>{% endif %}
 
   {% endfor %}
+
+  {% if persona %}<hr>
+    {% for punticontatto in persona.field_punti_di_contatto %}
+      <h3 class="h6">{{punticontatto.entity.label()}}</h3>
+      {% set contatti = punticontatto.entity.field_contatto %}
+      {% for contatto in contatti %}
+        {% set contatti_values = contatto.entity.field_valore_punto_di_contatto.getValue() %}
+        {% for contatto_value in contatti_values %}
+          <div>{{ contatto_value.value }}</div>
+        {% endfor %}
+
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+  {{ content.field_orari }}
 </div>
-{{ content.field_orari }}
 {% endapply %}
