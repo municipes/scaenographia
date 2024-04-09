@@ -132,7 +132,7 @@
 
   {% endfor %}
 
-  {% if persona %}<hr>
+  {% if persona %}
     <h3 class="h6">{{ persona.label() }}</h3>
     {% for punticontatto in persona.field_punti_di_contatto %}
       <h4 class="h6">{{ punticontatto.entity.label() }}</h4>
