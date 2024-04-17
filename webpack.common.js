@@ -13,6 +13,7 @@ module.exports = {
     // "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
     "bootstrap-italia-comuni": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni.scss'],
     "bootstrap-italia-comuni-rosso": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-rosso.scss'],
+    "bootstrap-italia-comuni-mare": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-mare.scss'],
     //"ckeditor5": paths.src + '/scss/ckeditor5.scss',
     "ckeditor5-comuni": paths.src + '/scss/ckeditor5-comuni.scss',
   },
