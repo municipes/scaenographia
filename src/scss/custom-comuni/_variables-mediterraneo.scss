@@ -14,8 +14,8 @@
 $primary-a5: $primary;
 $primary-a6: $primary;
 $primary-a7: $primary;
-$color-text-primary-hover: hsl(343, 56%, 34%); // color-seagreen-19
-$color-text-primary-active: hsl(343, 56%, 29%); // color-seagreen-14
+$color-text-primary-hover: #2c2c2c; // color-seagreen-19
+$color-text-primary-active: #2c2c2c; // color-seagreen-14
 $color-background-primary-lighter: hsl(160, 40, 92%); // color-seagreen-92
 $btn-comuni-primary-hover: #fff;
 $header-center-bg-color: $primary;
@@ -29,9 +29,8 @@ $section-user-header-background-color: #f0f8f5;
 $card-link-color: $primary;
 $card-comuni-bg-dark: #2c2c2c;
 $bg-footer: #327d0f; // Colore di background del footer
-$footer-comuni-bg-color: #2C5FB8;
+$footer-comuni-bg-color: $bg-footer;
 $link-list-comuni-color: #455a64;
 $link-list-hover-color: $primary;
-$hp-background-image: "../images/evidenza-header-mare.webp"
+$hp-background-image: "../images/evidenza-header.webp"
 /* END COMUNI EXAMPLE */
-
