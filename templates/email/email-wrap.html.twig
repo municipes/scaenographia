@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Default theme implementation for Symfony Email wrapper.
+ *
+ * Variables:
+ * - body: Email body content.
+ * - is_html: True if generating HTML output, false for plain text.
+ * - subject: Email subject.
+ * - type: Email type.
+ * - sub_type: Email sub-type.
+ * - attributes: HTML attributes for the top-level email element.
+ *
+ * @see template_preprocess_email_wrap()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'email-type-' ~ type|clean_class,
+    'email-sub-type-' ~ sub_type|clean_class,
+  ]
+%}
+
+{% if is_html %}
+<html>
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <div{{ attributes.addClass(classes).setAttribute('style', 'max-width: 800px; margin:auto;') }}>
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>
+        <div style="padding: 0px 0px 0px 0px;" class="clearfix">
+            <img width="120px" src="{{ drupal_url(logo_path|file_url|replace({'%20': ' '}), {absolute: true}) }}" alt="logo Comune">
+          <h1>{{ site_name }}</h1>
+          {{ body }}
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div style="font-size: 0.9em; padding: 8px; background-color: lightgrey; text-align: center;">{{ site_name }} - <a href="">Privacy e trattamento dati</a></div>
+</body>
+</html>
+{% else %}
+{{ body }}
+{% endif %}
