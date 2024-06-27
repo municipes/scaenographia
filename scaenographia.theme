@@ -151,3 +151,15 @@ function scaenographia_preprocess_breadcrumb(array &$variables): void {
     }
   }
 }
+
+/**
+ * Preprocesses variables for email wrap.
+ *
+ * @param mixed $variables The variables to preprocess.
+ */
+function olivero_preprocess_email_wrap(&$variables) {
+    $site_config = \Drupal::config('system.site');
+    $variables['site_name'] = $site_config->get('name');
+    // logo needs to be placed within specified folder
+    $variables['logo_path'] = \Drupal::config('scaenographia.settings')->get('logo.path');
+}
