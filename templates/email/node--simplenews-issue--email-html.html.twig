@@ -90,7 +90,7 @@
   </header>
   <div{{ content_attributes.addClass('node__content', layout) }}>
     {# Comments not part of content, so they won't inherit .text-content styles. #}
-    {{ content|without('comment', 'field_image') }}
+    {{ content|without('comment') }}
   </div>
   <div><small><a href="{{ url }}" rel="bookmark">Visualizza questa newsletter sul browser</a></small></div>
 </article>
