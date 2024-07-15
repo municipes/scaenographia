@@ -37,9 +37,45 @@
           max-width: 100%;
           height: auto;
         }
+        a.footer {
+          color: {{text_color}}
+        }
+
+        ul.icon {
+          fill: #000 !important;
+          /* width: 24px;
+          height: 24px;
+          margin-left: 16px; */
+          list-style-type: none;
+        }
+        ul.icon li {
+          display: inline;
+          padding-right: 1em;
+        }
+
+        ul.icon li a {
+          color: #000;
+        }
+
+        .icon.icon-sm {
+          width: 24px;
+          height: 24px;
+        }
+
+        .visually-hidden-focusable:not(:focus):not(:focus-within) {
+          position: absolute !important;
+          width: 1px !important;
+          height: 1px !important;
+          padding: 0 !important;
+          margin: -1px !important;
+          overflow: hidden !important;
+          clip: rect(0, 0, 0, 0) !important;
+          white-space: nowrap !important;
+          border: 0 !important;
+        }
       </style>
     </head>
-    <body style="font-family: Arial, Helvetica, sans-serif;">
+    <body style="font-family: Arial, Helvetica, sans-serif; background-color: white;">
       <div{{attributes.addClass(classes).setAttribute('style','max-width:800px;margin:auto;')}}>
         <table width="100%" cellpadding="0" cellspacing="0">
           <tr style="background: url({{ img_header }}); background-repeat: no-repeat; background-size: cover;">
@@ -59,14 +95,47 @@
             <td>
               <div style="padding: 0px 0px 0px 0px;" class="clearfix">
                 {{ body }}
+                <ul class="icon">
+                  {%- for social in socials -%}
+                    {%- if social.url -%}
+                      <li>
+                        {%- set social_attributes = create_attribute() -%}
+                        {%- set social_attributes = social_attributes
+                        .setAttribute('href', social.url)
+                        .setAttribute('rel', 'noopener')
+                        .setAttribute('aria-label', social.label)
+                      -%}
+
+                        {%- set social_attributes = social_attributes
+                          .setAttribute('target', '_blank')
+                        -%}
+
+                        <a{{-social_attributes-}}>
+                          <img src="{{ base_url ~ active_theme_path() ~ "/templates/email/social_icons/" ~ social.label ~ ".png" }}" width="48" height="48">
+                          {# {%- include '@bi-bcl/icon/icon.html.twig' with {
+                                                    name: 'it-' ~ (social.label|lower),
+                                                    size: 'sm',
+                                                    icon_classes: ['align-top'],
+                                                    icon_path: base_url ~ active_theme_path() ~ "/dist/svg/sprites.svg"
+                                                  } -%} #}
+                          <span class="visually-hidden-focusable">{{ social.label }}</span>
+                        </a>
+                      </li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
               </div>
             </td>
           </tr>
         </table>
       </div>
-      <div style="font-size: 0.9em; padding: 8px; background-color: lightgrey; text-align: center;">{{ site_name }}
+      <div style="font-size: 0.9em; padding: 8px; background-color: {{ footer_color }}; color: {{ text_color }}; text-align: center;">
+        <a class="footer" href="{{ base_url }}">{{ site_name }}</a>
         -
-        <a href="">Privacy e trattamento dati</a>
+        {% for item in links %}
+          <a class="footer" href="{{ item.url }}">{{ item.title }}</a>
+          -
+        {% endfor %}
       </div>
     </body>
   </html>
