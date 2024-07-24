@@ -1,0 +1,36 @@
+/**
+ * Custom bootstrap-italia variables
+ * Use as reference: node_modules/bootstrap-italia/src/scss/_variables.scss
+ * For primary colors see: _palette.scss
+ *
+ * This file is automatically imported into 'theme.scss'.
+ */
+
+/*
+ COMUNI EXAMPLE WITH MARE PRIMARY COLORS DEFINITION
+ This settings are related with: _palette.scss (GREEN EXAMPLE)
+ and last line _bootstrap-italia.scss
+*/
+$primary-a5: $primary;
+$primary-a6: $primary;
+$primary-a7: $primary;
+//$color-text-primary-hover: #2c2c2c; // color-seagreen-19
+//$color-text-primary-active: #2c2c2c; // color-seagreen-14
+//$color-background-primary-lighter: hsl(160, 40, 92%); // color-seagreen-92
+$btn-comuni-primary-hover: #fff;
+$header-center-bg-color: $primary;
+$header-slim-bg-color: #4d6605;
+$header-slim-button-color: #4d6605; // Colore di background del bottone di accesso all'area personale
+//Navigation
+$navbar-bg-color: $header-center-bg-color;
+$navigation-bg-color-desktop: $header-center-bg-color;
+$section-header-background-color: $primary-a10;
+//$section-user-header-background-color: #f0f8f5;
+$card-link-color: $primary;
+$card-comuni-bg-dark: #2c2c2c;
+$bg-footer: #547006; // Colore di background del footer
+$footer-comuni-bg-color: $bg-footer;
+$link-list-comuni-color: #455a64;
+$link-list-hover-color: $primary;
+$hp-background-image: "../images/evidenza-header-verdone.png"
+/* END COMUNI EXAMPLE */
