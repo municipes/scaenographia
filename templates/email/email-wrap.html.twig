@@ -131,10 +131,8 @@
       </div>
       <div style="font-size: 0.9em; padding: 8px; background-color: {{ footer_color }}; color: {{ text_color }}; text-align: center;">
         <a class="footer" href="{{ base_url }}">{{ site_name }}</a>
-        -
         {% for item in links %}
-          <a class="footer" href="{{ item.url }}">{{ item.title }}</a>
-          -
+         {% if not loop.last %} - {% endif %} <a class="footer" href="{{ item.url }}">{{ item.title }}</a>
         {% endfor %}
       </div>
     </body>
