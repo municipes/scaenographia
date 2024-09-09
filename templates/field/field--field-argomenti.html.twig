@@ -1,3 +1,10 @@
-{% include '@bi-field/field-reference--format-label--component-chip.html.twig' with {
+{# {% include '@bi-field/field-reference--format-label--component-chip.html.twig' with {
   chip_color: 'primary'
-} %}
+} %} #}
+{% apply spaceless %}
+{% for item in items %}
+  <a class="chip chip-simple text-decoration-none" href="{{ item.content['#url'] }}" data-focus-mouse="false">
+    <span class="chip-label">{{ item.content['#title'] }}</span>
+  </a>
+{% endfor %}
+{% endapply %}
