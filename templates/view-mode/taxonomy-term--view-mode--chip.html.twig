@@ -26,12 +26,13 @@
  */
 #}
 {% apply spaceless %}
-
   {%- set _chip -%}
-  {% include '@bi-bcl/chip/chip.html.twig' with {
-    chip_label: term.label,
-    chip_color: 'primary',
-  } %}
+  <a href="{{ url }}" data-focus-mouse="false">
+    {% include '@bi-bcl/chip/chip.html.twig' with {
+      chip_label: term.label(),
+      chip_color: 'primary',
+    } %}
+  </a>
   {% endset %}
   {# {{ link(_chip, 'entity:taxonomy_term/' ~ term.id, attributes) }} #}
   {{ _chip }}
