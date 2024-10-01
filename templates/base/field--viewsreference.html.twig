@@ -41,7 +41,7 @@
  * @ingroup themeable
  */
 #}
-{% if items.0.content.contents.title  %}
+{% if items.0.content.contents['#name'] or items.0.content['#lazy_builder'] %}
 {% apply spaceless %}
 
   {% set container_classes = [
