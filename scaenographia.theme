@@ -83,12 +83,22 @@ function scaenographia_preprocess_page(&$variables) {
  * Implements hook_preprocess_node().
  */
 function scaenographia_preprocess_node(&$variables) {
-  if ($variables['node']->bundle() == 'accesso_al_servizio' && $variables['view_mode'] == 'teaser') {
+  $node = $variables['node'];
+  if ($node->bundle() == 'accesso_al_servizio' && $variables['view_mode'] == 'teaser') {
     $current_path = \Drupal::service('path.current')->getPath();
     if(preg_match('/node\/(\d+)/', $current_path, $matches)) {
       $node = \Drupal\node\Entity\Node::load($matches[1]);
     }
     $variables['access_node'] = $node;
+  }
+  if ($variables['view_mode'] == 'search_result') {
+    // Usa il servizio entity_type.manager per ottenere la definizione del bundle.
+    $bundle_info = \Drupal::service('entity_type.bundle.info')->getBundleInfo('node');
+
+    // Ottieni la label del bundle corrispondente al machine name.
+    if (isset($bundle_info[$node->bundle()]['label'])) {
+      $variables['bundle_label'] = $bundle_info[$node->bundle()]['label'];
+    }
   }
 }
 
