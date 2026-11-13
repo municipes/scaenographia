@@ -43,18 +43,26 @@
 
   <body{{ attributes.addClass(_body_classes) }}>
     {# <iframe style="display:block;border-style:none;height:0px;width:0px;" id="refresh_iframe" src="https://www.comune.pontassieve.fi.it/wso2silfi/connect/cittadino"></iframe> #}
-    <div class="skip-navigation">
+    {% block main %}
       {# Keyboard navigation/accessibility link to:
-          - main content section in ./content/_partial.content.html.twig;
-          - footer content in ./footer/_partial.footer.html.twig.
+            - main content section in ./content/_partial.content.html.twig;
+            - footer content in ./footer/_partial.footer.html.twig.
       #}
-      <a href="#it-main-content" class="visually-hidden-focusable">
-        {{ 'Skip to main content'|t }}
-      </a>
-      <a href="#footer" class="visually-hidden-focusable">
-        {{ 'Skip to footer content'|t }}
-      </a>
-    </div>
+      <nav class="skiplinks" aria-label="{{ 'Skip links'|t }}">
+        <ul>
+          <li class="visually-hidden-focusable">
+            <a href="#it-main-content" class="visually-hidden-focusable">
+              {{ 'Skip to main content'|t }}
+            </a>
+          </li>
+          <li class="visually-hidden-focusable" >
+            <a href="#footer" class="visually-hidden-focusable">
+              {{ 'Skip to footer content'|t }}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    {% endblock %}
 
     {{ page_top }}
     {{ page }}
@@ -68,10 +76,12 @@
       } %}
     {% endif %}
 
-    {% set _libraries_cdn_fonts_path = libraries_cdn_fonts is not empty ?
-      libraries_cdn_fonts : base_path ~ "/" ~ directory ~ '/dist/fonts'
-    %}
-    <script>window.__PUBLIC_PATH__ = '{{ _libraries_cdn_fonts_path }}'</script>
+    {% if libraries_fonts_load_from_css == 0 %}
+      {% set _libraries_cdn_fonts_path = libraries_cdn_fonts is not empty ?
+        libraries_cdn_fonts : base_path ~ "/" ~ directory ~ '/dist/fonts'
+      %}
+      <script>window.__PUBLIC_PATH__ = '{{ _libraries_cdn_fonts_path }}'</script>
+    {% endif %}
     <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>

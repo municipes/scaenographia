@@ -1,0 +1,9 @@
+/**
+ * Derived primary colors.
+ *
+ * From BI 2.8+ these are defined in 'base/variables', which is loaded after
+ * the custom variables (retro compatibility), but our custom variables
+ * already need them.
+ */
+$primary: hsb($primary-h, $primary-s, $primary-b);
+$primary-a10: hsb($primary-h, $primary-s, 40);

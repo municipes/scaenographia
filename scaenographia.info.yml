@@ -2,7 +2,7 @@ name: "Scaenographia"
 type: theme
 description: "Scaenographia is a drupal sub-theme, based on Bootstrap Italia, which implements the design of municipality."
 package: Municipium
-core_version_requirement: ^10.3 || ^11
+core_version_requirement: ^10.5 || ^11.3
 base theme: bootstrap_italia
 
 'interface translation project': scaenographia
@@ -124,5 +124,5 @@ components:
     scaenographia_components:
       - components
 
-version: '2.12.4'
+version: '2.17.7'
 project: 'Scaenographia'
