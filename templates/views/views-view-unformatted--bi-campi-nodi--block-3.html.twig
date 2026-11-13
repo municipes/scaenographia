@@ -1,7 +1,6 @@
 {% apply spaceless %}
 
   {% for row in rows %}
-    {% set uo = null %}
     {% set entities = row['content']['#row']._relationship_entities %}
     {% if entities.field_responsabile_struttura is defined %}
       {% set uo = entities.field_responsabile_struttura %}

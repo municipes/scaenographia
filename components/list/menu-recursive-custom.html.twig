@@ -225,7 +225,7 @@
 
           {% set _enable_icon_wrapper = icon_position is not empty or item.is_expanded ? true : false %}
 
-          <a{{-item_attributes-}}>
+          <a{{-item_attributes-}}{% if item.is_expanded %} role="button"{% endif %}>
             {%- if _enable_icon_wrapper -%}
               <span class="list-item-title-icon-wrapper">
               {%- endif -%}

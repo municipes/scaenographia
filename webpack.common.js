@@ -1,16 +1,19 @@
-const fs = require('fs')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
-const rimraf = require('rimraf')
-const check = require('./webpack.check')
+import fs from 'fs/promises';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import SvgChunkWebpackPlugin from 'svg-chunk-webpack-plugin';
+import paths from './webpack.paths.js';
+import semver from 'semver';
+import packageJson from './package.json' with { type: 'json' };
 
-const paths = require('./webpack.paths')
+if (!semver.satisfies(process.version, packageJson.engines.node)) {
+  throw new Error(`The current Node.js version (${process.version}) does not satisfy the required version (${packageJson.engines.node}).`);
+}
 
-module.exports = {
+export default {
   // Entry
   entry: {
-    // "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
+    // "bootstrap-italia": [`${paths.src}/js/index.js`, `${paths.src}/scss/theme.scss`],
     "bootstrap-italia-comuni": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni.scss'],
     "bootstrap-italia-comuni-acqua": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-acqua.scss'],
     "bootstrap-italia-comuni-acquamarina": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-acquamarina.scss'],
@@ -32,7 +35,7 @@ module.exports = {
     "bootstrap-italia-comuni-verdone": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-verdone.scss'],
     "bootstrap-italia-comuni-warmred": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-warmred.scss'],
     "bootstrap-italia-comuni-rosso": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-rosso.scss'],
-    //"ckeditor5": paths.src + '/scss/ckeditor5.scss',
+    //"ckeditor5": `${paths.src}/scss/ckeditor5.scss`,
     "ckeditor5-comuni": paths.src + '/scss/ckeditor5-comuni.scss',
   },
 
@@ -41,77 +44,75 @@ module.exports = {
     path: paths.build,
     filename: "js/[name].min.js",
   },
+
   module: {
     rules: [
       {
         test: /\.svg$/,
         include: [
-          paths.modules + '/bootstrap-italia/src/svg',
-          paths.src + '/svg'
+          `${paths.modules}/bootstrap-italia/src/svg`,
+          `${paths.src}/svg`,
         ],
         use: [
           {
-            loader: 'svg-sprite-loader',
-            options: {
-              extract: true,
-              outputPath: '/svg/',
-              spriteFilename: 'sprites.svg',
-            }
+            loader: SvgChunkWebpackPlugin.loader,
           },
-          {
-            loader: 'svgo-loader',
-            options: {
-              plugins: [
-                {
-                  name: 'removeAttrs',
-                  params: {
-                    attrs: '(fill)',
-                  },
-                }
-              ]
-            }
-          }
         ],
       },
+      // Uncomment if you use loading fonts via CSS https://git.drupalcode.org/project/bootstrap_italia#loading-fonts-via-css-advanced-users
+      // {
+      //   test: /\.(woff|woff2|eot|ttf|svg)$/,
+      //   include: [
+      //     paths.modules + '/bootstrap-italia/src/fonts',
+      //   ],
+      //   type: 'asset/resource',
+      //   generator: {
+      //     filename: 'fonts/[name]/[name][ext]',
+      //   },
+      // },
     ],
   },
+
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name].min.css',
-      chunkFilename: 'css/[id].min.css'
+      chunkFilename: 'css/[id].min.css',
     }),
-    new SpriteLoaderPlugin({
-      plainSprite: true
+    new SvgChunkWebpackPlugin({
+      filename: 'svg/sprites.svg',
+      svgstoreConfig: {
+        svgAttrs: {
+          'xmlns': 'http://www.w3.org/2000/svg',
+        }
+      }
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: paths.modules + '/bootstrap-italia/src/assets/',
-          to: paths.build + '/assets/'
+          from: `${paths.modules}/bootstrap-italia/src/assets/`,
+          to: `${paths.build}/assets/`,
         },
         {
-          from: paths.modules + '/bootstrap-italia/src/fonts/',
-          to: paths.build + '/fonts/'
+          from: `${paths.modules}/bootstrap-italia/src/fonts/`,
+          to: `${paths.build}/fonts/`,
         },
         {
           from: './src/images/',
-          to: paths.build + '/images/'
-        }
-      ]
+          to: `${paths.build}/images/`,
+        },
+      ],
     }),
     {
       apply: (compiler) => {
-        compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
-          const ckeditorJsFile = compiler.options.output.path + '/js/ckeditor5.min.js';
-          const ckeditorComuniJsFile = compiler.options.output.path + '/js/ckeditor5-comuni.min.js';
-          if (fs.existsSync(ckeditorJsFile)) {
-            rimraf.sync(ckeditorJsFile);
-          }
-          if (fs.existsSync(ckeditorComuniJsFile)) {
-            rimraf.sync(ckeditorComuniJsFile);
+        compiler.hooks.afterEmit.tapPromise('AfterEmitPlugin', async (compilation) => {
+          const ckeditorJsFile = `${compiler.options.output.path}/js/ckeditor5.min.js`;
+          try {
+            await fs.rm(ckeditorJsFile, { force: true });
+          } catch (err) {
+            console.error('Error deleting ckeditor5.min.js:', err);
           }
         });
       },
-    }
+    },
   ],
 };
