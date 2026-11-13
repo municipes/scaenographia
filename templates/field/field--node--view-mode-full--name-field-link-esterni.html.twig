@@ -42,6 +42,7 @@
  */
 #}
 {% apply spaceless %}
+{% set col_value = element['#bundle'] == 'pagina_legacy' ? '' : 'col-6' %}
 
   {% set container_classes = [
     'row',
@@ -90,7 +91,7 @@
         <div>
       {% endif %}
       {% for item in items %}
-        <div{{ item.attributes.addClass(['col-6']) }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass([col_value]) }}>{{ item.content }}</div>
       {% endfor %}
       {% if multiple %}
         </div>

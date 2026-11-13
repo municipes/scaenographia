@@ -17,6 +17,31 @@ function scaenographia_library_info_build(): array {
 }
 
 /**
+ * Implements hook_theme_suggestions_node_alter().
+ */
+function scaenographia_theme_suggestions_node_alter(array &$suggestions, array $variables): void {
+  if (!empty($variables['elements']['#node'])) {
+    $node = $variables['elements']['#node'];
+    $view_mode = $variables['elements']['#view_mode'];
+
+    // Verifica se il campo field_template esiste ed ha un valore
+    if ($node->hasField('field_template') && !$node->field_template->isEmpty()) {
+      $template_value = $node->field_template->value;
+      $term_id = $node->field_template->target_id;
+      $term = \Drupal\taxonomy\Entity\Term::load($term_id);
+      $term_name = $term->getName();
+
+      $clean_template_value = strtolower(preg_replace('/[^a-zA-Z0-9_]+/', '_', trim($term_name)));
+
+      // Crea la suggestion con type, view mode e valore del campo template
+      if (!empty($clean_template_value)) {
+        $suggestions[] = 'node__type_' . $node->bundle() . '__view_mode_' . $view_mode . '__' . $clean_template_value;
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_theme_suggestions_field_alter().
  */
 function scaenographia_theme_suggestions_field_alter(array &$suggestions, array &$variables): void {
@@ -158,6 +183,53 @@ function scaenographia_preprocess_breadcrumb(array &$variables): void {
       default:
         # code...
         break;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu__header_slim_action().
+ *
+ * Prepara il nome utente per il template menu--header-slim-action.html.twig
+ */
+function scaenographia_preprocess_menu__header_slim_action(&$variables) {
+  $account = \Drupal::currentUser();
+
+  // Imposta il valore predefinito per gli utenti anonimi
+  $variables['user_display_name'] = t('Utente');
+
+  // Se l'utente è autenticato, prendi nome e cognome dal profilo
+  if ($account->id() !== 0) {
+    $user = \Drupal\user\Entity\User::load($account->id());
+
+    if ($user) {
+      $first_name = '';
+      $last_name = '';
+
+      // Aggiungiamo il contesto dell'utente corrente alla cache
+      $variables['#cache']['contexts'][] = 'user';
+
+      // Per i campi specifici del profilo utente
+      $variables['#cache']['contexts'][] = 'user.roles';
+
+      // aggiungiamo anche i tag della cache appropriati
+      $variables['#cache']['tags'][] = 'user:' . $account->id();
+
+      // $variables['#cache']['max-age'] = 0; // Disabilita la cache, extrema ratio
+
+      // Verifica se i campi esistono e ottieni i loro valori
+      if ($user->hasField('field_user_firstname') && !$user->get('field_user_firstname')->isEmpty()) {
+        $first_name = $user->get('field_user_firstname')->value;
+      }
+
+      if ($user->hasField('field_user_lastname') && !$user->get('field_user_lastname')->isEmpty()) {
+        $last_name = $user->get('field_user_lastname')->value;
+      }
+
+      // Se almeno uno dei campi ha un valore, costruisci il nome completo
+      if (!empty($first_name) || !empty($last_name)) {
+        $variables['user_display_name'] = trim($first_name . ' ' . $last_name);
+      }
     }
   }
 }

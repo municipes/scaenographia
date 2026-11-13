@@ -65,7 +65,7 @@
       card_attributes: attributes,
     } %}
       {% block cardTitle %}
-        <h5 class="card-title">
+        <div class="card-title h5">
           {% include '@bi-bcl/icon/icon.html.twig' with {name: _icon_name|join|trim} %}
           {% set url = link['#url'].toString() %}
           <a href="{{ url }}" data-element="service-file">
@@ -74,7 +74,7 @@
           {% if file_size and file_link_show_size %}
             <span> ({{ file_size }})</span>
           {% endif %}
-        </h5>
+        </div>
       {% endblock %}
     {% endembed %}
   {% endblock %}

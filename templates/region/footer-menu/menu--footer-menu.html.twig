@@ -49,7 +49,7 @@
     {% else %}
       {# {% set _attributes = item.attributes.setAttribute('data-element', 'custom-submenu') %}
       {% set _items = _items|merge([item]) %} #}
-      <li>{{ link(_url_text, item.url, link_attributes.setAttribute('data-element', 'custom-submenu')) }}</li>
+      <li>{{ link(_url_text, item.url, link_attributes.setAttribute('data-element', {})) }}</li>
     {% endif %}
 
   {% endfor %}

@@ -54,7 +54,7 @@
           {% set footer_column_attributes = create_attribute() %}
 
           <div class="row py-1">
-            <div class="col-9">
+            <div class="col-12 col-md-9">
               <div class="row">
                 {% if page.footer_credits %}
                   <h3 class="h6 text-uppercase border-white border-bottom pb-2 mb-3">{{ 'Contacts'|t }}</h3>
@@ -69,7 +69,7 @@
                 {% endif %}
               </div>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-md-3">
               {% if socials %}
                 <h3 class="h6 text-uppercase border-white border-bottom pb-2 mb-3">{{ 'Follow us on'|t }}</h3>
                 <div{{ footer_column_attributes.removeClass('col-md-6').addClass('col-md-3') }}>
@@ -78,7 +78,7 @@
                     label: '',
                     icon_color: center_header_light ? 'primary' : 'white',
                     blank: social_new_window,
-                    followus_classes: ["it-socials", "d-none", "d-lg-flex"]
+                    followus_classes: ["it-socials", "d-lg-flex"]
                   } %}
                 </div>
               {% endif %}

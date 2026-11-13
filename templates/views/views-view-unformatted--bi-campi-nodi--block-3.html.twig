@@ -1,0 +1,43 @@
+{% apply spaceless %}
+
+  {% for row in rows %}
+    {% set uo = null %}
+    {% set entities = row['content']['#row']._relationship_entities %}
+    {% if entities.field_responsabile_struttura is defined %}
+      {% set uo = entities.field_responsabile_struttura %}
+    {% endif %}
+    {% if entities.field_unita_organizzativa is defined %}
+      {% set uo = entities.field_unita_organizzativa %}
+    {% endif %}
+
+      {% if uo %}
+
+        {% embed '@bi-bcl/card/card.html.twig' with {
+          card_tag_container: 'div',
+          card_signature: false,
+          card_shadow: true,
+          card_border_bottom: true,
+          card_classes: ['h-100'],
+          card_attributes: attributes
+        } %}
+
+        {% block cardTitle %}
+          {{ title_prefix }}
+          <h3{{ title_attributes.addClass(['card-title','h5']) }}>
+            <a href="{{ path('entity.node.canonical', {'node': uo.id}) }}" rel="bookmark">{{ uo.label }}</a>
+          </h3>
+          {{ title_suffix }}
+        {% endblock %}
+
+
+        {% block cardText %}
+          <div{{ content_attributes.addClass('card-text') }}>
+            {{ uo.field_descrizione_breve.value }}
+          </div>
+        {% endblock %}
+    {% endembed %}
+    {% endif %}
+
+  {% endfor %}
+
+{% endapply %}

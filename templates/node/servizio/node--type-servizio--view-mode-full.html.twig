@@ -152,10 +152,11 @@
       {% for item in node.field_accedi_al_servizio %}
         {% set button_attributes = create_attribute() %}
         {% if item.entity.bundle() == 'accesso_al_servizio' %}
-          <div class="col-6">
+          <div class="col-6 mt-1">
             {% set channel = item.entity %}
             {% set access_type = channel.field_tipo_di_accesso.entity.label()|clean_class %}
-            {% if content.field_stato_del_servizio|render|striptags|trim == 'Servizio attivo' %}
+            {% if content.field_stato_del_servizio|render|striptags|trim == 'Servizio attivo'
+              and channel.isPublished() %}
               {% set onclick = 'location.href=\'' ~ channel.field_link.0.getUrl().toString() ~ '\'' %}
               {% set button_variant = 'primary' %}
             {% else %}
@@ -173,7 +174,7 @@
             variant: button_variant,
             tag: 'button',
             outline: map[access_type]['outline'],
-            button_classes: ['fw-bold', 'px-5'],
+            button_classes: ['fw-bold', 'px-5', 'w-100'],
             button_attributes: button_attributes
              .setAttribute('onclick', onclick)
              .setAttribute('data-element', map[access_type]['data-element'])

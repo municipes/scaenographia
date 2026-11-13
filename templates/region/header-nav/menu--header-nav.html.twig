@@ -71,7 +71,7 @@
 
     {# Set data-attribute to container (eg. li) #}
     {% set _attributes = item.attributes.setAttribute('data-element', map[item.title|lower]) %}
-    {% set _item = item|merge({'attributes': _attributes}) %}
+    {% set _item = item|merge({'attributes': {}}) %}
 
     {# Set data-attribute to url (_attributes is reused for the sake
        of simplicity of the example, if it is deemed appropriate

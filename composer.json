@@ -1,19 +1,19 @@
 {
-    "name": "municipes/scaenographia",
+    "name": "municipes-fs/scaenographia",
     "description": "Scaenographia è un sub-theme drupal, basato su bootstrap_italia, che implementa il design dei comuni.",
     "type": "drupal-theme",
     "license": "GPL-3.0-only",
-    "homepage": "https://github.com/municipes/scaenographia",
+    "homepage": "https://gitlab.055055.it/municipes/scaenographia",
     "authors": [
         {
-            "name": "Maurizio Cavalletti",
-            "homepage": "https://www.drupal.org/u/maurizio_akabit",
+            "name": "Firenze Smart",
+            "homepage": "https://www.firenzesmart.it",
             "role": "Maintainer"
         }
     ],
     "support": {
-        "issues": "https://github.com/municipes/scaenographia/issues",
-        "source": "https://github.com/municipes/scaenographia"
+        "issues": "https://gitlab.055055.it/municipes/scaenographia/-/issues",
+        "source": "https://gitlab.055055.it/municipes/scaenographia"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

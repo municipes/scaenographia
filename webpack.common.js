@@ -26,6 +26,7 @@ module.exports = {
     "bootstrap-italia-comuni-mediterraneo": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-mediterraneo.scss'],
     "bootstrap-italia-comuni-roma": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-roma.scss'],
     "bootstrap-italia-comuni-rustico": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-rustico.scss'],
+    "bootstrap-italia-comuni-sds": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-sds.scss'],
     "bootstrap-italia-comuni-trento": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-trento.scss'],
     "bootstrap-italia-comuni-turquoise": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-turquoise.scss'],
     "bootstrap-italia-comuni-verdone": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni-verdone.scss'],
